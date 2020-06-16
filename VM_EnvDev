@@ -18,8 +18,14 @@ $ codenation
 
 Deve aparecer a versão e mais algumas coisas na tela.
 
-Instalar o git
+Instalar o git:
 
 $ sudo apt install git
+
+Teste com: 
+$ git --version
+
+Lista de comandos git: https://wethefoss.github.io/Git-Commands/
+
 
 
