@@ -1,3 +1,22 @@
 SO - kubuntu
 https://kubuntu.org/getkubuntu/
 
+Instalando o aplicativo da Codenation no Linux
+
+fazer o download do arquivo da codenation:
+https://s3-us-west-1.amazonaws.com/codenation-cli/latest/codenation_linux.tar.gz
+
+Extrair o arquivo na pasta de download
+Abrir o terminal
+digitar
+$ sudo mv Downloads/codenation /usr/local/bin/
+
+digitar a senha
+
+$ sudo chmod +x /usr/local/bin/codenation
+$ codenation
+
+Deve aparecer a versão e mais algumas coisas na tela.
+
+
+
