@@ -78,6 +78,8 @@ $ ssh -T git@github.com
 Se surgir uma mensagem de aviso perguntando se você deseja continuar, diga que sim (yes).
 
 Instalar o docker:
+Ver o passo a passo:
+https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt
 
 $ sudo apt install curl
 $ curl --version
@@ -91,7 +93,9 @@ $ sudo systemctl status docker
 $ sudo usermod -aG docker ${USER}
 $ su - ${USER}
 $ id -nG
-$ sudo usermod -aG docker devel
+Você vai ver o seu 'nome de usuário' na tela
+
+$ sudo usermod -aG docker 'nome de usuário'
 
 Para testar: 
 $ docker run hello-world
