@@ -72,5 +72,10 @@ $ xclip -sel clip < ~/.ssh/id_rsa.pub
 Tutorial para acicionar a chave no github: 
 https://help.github.com/pt/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
+Teste com:
+$ ssh -T git@github.com
+
+Se surgir uma mensagem de aviso perguntando se você deseja continuar, diga que sim (yes).
+
 
 
