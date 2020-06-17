@@ -100,4 +100,5 @@ $ sudo usermod -aG docker 'nome de usuário'
 Para testar: 
 $ docker run hello-world
 
-
+Instalar o jdk:
+https://www.digitalocean.com/community/tutorials/como-instalar-o-java-no-ubuntu-com-apt-get-pt
