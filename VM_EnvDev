@@ -55,6 +55,19 @@ https://medium.com/@ivanaugustobd/seu-terminal-pode-ser-muito-muito-mais-produti
 Configurar o github:
 $ ssh-keygen -t rsa -b 4096 -C "seuemail@dominio.com.br"
 dê enter para criar o dir default
+crie e confirme a senha
+
+Para adicionar a identidade ao git, use:
+$ ssh-agent -s
+
+$ ssh-add ~/.ssh/id_rsa
+
+Para copiar a chave:
+$ sudo apt-get install xclip
+# Baixa e instala xclip. Se você não tiver `apt-get`, talvez seja necessário usar outro instalador (como o `yum`)
+
+$ xclip -sel clip < ~/.ssh/id_rsa.pub
+# Copia o conteúdo do arquivo id_rsa.pub na área de transferência
 
 
 
