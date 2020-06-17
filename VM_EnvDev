@@ -69,5 +69,8 @@ $ sudo apt-get install xclip
 $ xclip -sel clip < ~/.ssh/id_rsa.pub
 # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
 
+Tutorial para acicionar a chave no github: 
+https://help.github.com/pt/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
 
 
