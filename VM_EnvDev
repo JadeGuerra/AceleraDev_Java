@@ -77,5 +77,23 @@ $ ssh -T git@github.com
 
 Se surgir uma mensagem de aviso perguntando se você deseja continuar, diga que sim (yes).
 
+Instalar o docker:
+
+$ sudo apt install curl
+$ curl --version
+$ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository "deb [arch=amd64]
+https://download.docker.com/linux/ubuntu bionic stable"
+$ sudo apt update
+$ sudo apt install docker-ce docker-ce-cli containerd.io
+$ apt-cache policy docker-ce
+$ sudo systemctl status docker
+$ sudo usermod -aG docker ${USER}
+$ su - ${USER}
+$ id -nG
+$ sudo usermod -aG docker devel
+
+Para testar: 
+$ docker run hello-world
 
 
