@@ -102,3 +102,25 @@ $ docker run hello-world
 
 Instalar o jdk:
 https://www.digitalocean.com/community/tutorials/como-instalar-o-java-no-ubuntu-com-apt-get-pt
+
+$ sudo apt-get install default-jre
+$ sudo apt-get install default-jdk
+$ sudo update-alternatives --config java
+$ sudo update-alternatives --config javac
+
+Testar a instalação:
+$ java -version
+
+PostgreSQL:
+
+$ sudo apt-get --purge -y remove postgresql\* && sudo apt-get -y autoremove
+$ sudo apt-get install -y postgresql
+$ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'postgres';"
+$ sudo service postgresql reload
+
+IntelliJ:
+
+Fazer o download:
+https://www.jetbrains.com/idea/download/
+
+Desempacote o arquivo .tar.gz e rode o script bin/idea.sh.
