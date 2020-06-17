@@ -124,3 +124,20 @@ Fazer o download:
 https://www.jetbrains.com/idea/download/
 
 Desempacote o arquivo .tar.gz e rode o script bin/idea.sh.
+
+Gradle:
+
+$ curl -s "https://get.sdkman.io" | bash
+
+Abra a pasta: /home/"seu usuario"
+mostre os arquivos ocultos e vá até
+/.sdkman/bin
+abra o terminal a partir daqui
+
+$ sdk install gradle 6.5
+$ exit
+
+Teste:
+$ gradle -v
+
+
