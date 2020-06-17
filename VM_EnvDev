@@ -34,4 +34,23 @@ $ sudo apt install ./google-chrome-stable_current_amd64.deb
 Instalar o zsh:
 $ sudo apt install zsh
 
+Abrir o zsh:
+$ zsh
+$ q
+$ reset
+
+Instalar o oh my shell:
+$ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+Pode procurar um tema para configurar o zsh:
+https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+Para os plugins editar os plugins (se vc não conseguir entrar no zsh de cara):
+$ sudo nano ~/.zshrc
+
+Mais informações:
+https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/
+https://medium.com/@ivanaugustobd/seu-terminal-pode-ser-muito-muito-mais-produtivo-3159c8ef77b2
+
+
 
