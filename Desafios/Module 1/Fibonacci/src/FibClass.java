@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FibClass {
     //cria uma ArrayList @fibonacci
-    public static List<Integer> fibonacci () {
+    public static List<Integer> fibonacci() {
         List<Integer> listFibonacci = new ArrayList<Integer>();
         //inicializa @listFibonacci
         listFibonacci.add(0);
@@ -26,18 +26,14 @@ public class FibClass {
     //Consulta se @a está em @fibonacci
     public static Boolean isFibonacci(Integer a) {
         //chama @fibonacci
-
         List<Integer> consultaFibonacci = fibonacci();
 
 
         //verifica se @a está em @fibonacci
-
         boolean checkedFibonacci = consultaFibonacci.contains(a);
 
 
         //retorna boolean @checkedFibonacci
-
         return checkedFibonacci;
     }
-
 }
