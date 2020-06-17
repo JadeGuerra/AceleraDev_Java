@@ -52,5 +52,9 @@ Mais informações:
 https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/
 https://medium.com/@ivanaugustobd/seu-terminal-pode-ser-muito-muito-mais-produtivo-3159c8ef77b2
 
+Configurar o github:
+$ ssh-keygen -t rsa -b 4096 -C "seuemail@dominio.com.br"
+dê enter para criar o dir default
+
 
 
