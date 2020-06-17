@@ -25,7 +25,19 @@ public class FibClass {
 
     //Consulta se @a está em @fibonacci
     public static Boolean isFibonacci(Integer a) {
-        return fibonacci().contains(a);
+        //chama @fibonacci
+
+        List<Integer> consultaFibonacci = fibonacci();
+
+
+        //verifica se @a está em @fibonacci
+
+        boolean checkedFibonacci = consultaFibonacci.contains(a);
+
+
+        //retorna boolean @checkedFibonacci
+
+        return checkedFibonacci;
     }
 
 }
