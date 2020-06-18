@@ -22,7 +22,6 @@ public class Fibonacci {
             System.out.println("Este número está em Fibonacci.");
         } else {
             System.out.println("Este número não está na Fibonacci.");
-
         }
 
     }
