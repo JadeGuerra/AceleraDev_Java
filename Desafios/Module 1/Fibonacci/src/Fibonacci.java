@@ -18,6 +18,7 @@ public class Fibonacci {
         int a = s.nextInt();
         FibClass fibClass = new FibClass();
         //Testa e escreve mensagem
+        //implemente teste
         if( fibClass.isFibonacci(a) ){
             System.out.println("Este número está em Fibonacci.");
         } else {
