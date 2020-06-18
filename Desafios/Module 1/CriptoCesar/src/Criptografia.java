@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public interface Criptografia {
 
     String criptografar(String texto);
