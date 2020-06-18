@@ -2,7 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FibClass {
-    //cria uma ArrayList @fibonacci
+    /**
+     * class @fibonacci return
+     * list @listFibonacci
+     * @numFibonacci atualiza nos números da sequência Fibonnaci
+     * que depois são adicionados à lista
+     */
     public static List<Integer> fibonacci() {
         List<Integer> listFibonacci = new ArrayList<Integer>();
         //inicializa @listFibonacci
@@ -14,26 +19,24 @@ public class FibClass {
 
         //adiciona o restante dos números na @listFibonacci
         do {
+            //atualiza @numeroFibonacci
             numeroFibonacci += listFibonacci.get(listFibonacci.size() - 2);
+            //adiciona @numeroFibonacci a @listFibonacci
             listFibonacci.add(numeroFibonacci);
         }
+        //condicional para repetição: número maior que 350
         while (listFibonacci.size() + 1 <= 350);
 
         //retorna a lista completa
         return listFibonacci;
     }
 
-    //Consulta se @a está em @fibonacci
+    /**
+     * class @isFibonacci
+     * return true se a está na list @listFibonacci
+     */
     public static Boolean isFibonacci(Integer a) {
-        //chama @fibonacci
-        List<Integer> consultaFibonacci = fibonacci();
-
-
-        //verifica se @a está em @fibonacci
-        boolean checkedFibonacci = consultaFibonacci.contains(a);
-
-
-        //retorna boolean @checkedFibonacci
-        return checkedFibonacci;
+        //consulta se @a está na list @fibonacci
+        return fibonacci().contains(a);
     }
 }
