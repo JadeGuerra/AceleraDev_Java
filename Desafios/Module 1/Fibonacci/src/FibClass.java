@@ -25,7 +25,7 @@ public class FibClass {
             listFibonacci.add(numeroFibonacci);
         }
         //condicional para repetição: número maior que 350
-        while (listFibonacci.size() + 1 <= 350);
+        while (numeroFibonacci + 1 <= 350 + 1);
 
         //retorna a lista completa
         return listFibonacci;
