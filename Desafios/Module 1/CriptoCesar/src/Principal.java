@@ -7,10 +7,7 @@ public class Principal {
         System.out.print("Escreva o texto: ");
         String texto = s.nextLine();
 
-        CriptografiaCesariana criptografar = new criptografar (texto);
-
-
-        System.out.println(criptografar);
-    }
+        Criptografia classeDeCriptografiaInstanciada = new CriptografiaCesariana();
+        System.out.println(classeDeCriptografiaInstanciada.criptografar(texto));
 
 }
