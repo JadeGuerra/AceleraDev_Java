@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AceleraDev_Java.iml" filepath="$PROJECT_DIR$/.idea/AceleraDev_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desafios/Module 1/CriptoCesar/CriptoCesar.iml" filepath="$PROJECT_DIR$/Desafios/Module 1/CriptoCesar/CriptoCesar.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafios/Module 1/Fibonacci/Fibonacci.iml" filepath="$PROJECT_DIR$/Desafios/Module 1/Fibonacci/Fibonacci.iml" />
     </modules>
   </component>
