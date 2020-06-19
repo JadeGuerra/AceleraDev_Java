@@ -17,8 +17,13 @@ public class Fibonacci {
         System.out.print("Digite o número para consultar: ");
         int a = s.nextInt();
         FibClass fibClass = new FibClass();
-        fibClass.isFibonacci(a);
-        System.out.println(fibClass);
+        //Testa e escreve mensagem
+        //implemente teste
+        if( fibClass.isFibonacci(a) ){
+            System.out.println("Este número está em Fibonacci.");
+        } else {
+            System.out.println("Este número não está na Fibonacci.");
+        }
 
     }
 }
