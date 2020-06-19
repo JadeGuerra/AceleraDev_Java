@@ -1,13 +1,28 @@
 import java.util.Scanner;
 
-public class Principal {
+public class Principal {//all mine
 
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
         System.out.print("Escreva o texto: ");
         String texto = s.nextLine();
+        System.out.println("Para criptografar digite 1 ");
+        System.out.println("Para descriptografar digite 2 ");
+        byte definicao = s.nextByte();
+        Criptografia criptografia = new CriptografiaCesariana();
 
-        Criptografia classeDeCriptografiaInstanciada = new CriptografiaCesariana();
-        System.out.println(classeDeCriptografiaInstanciada.criptografar(texto));
+        if (definicao == 1 ) {
+            String criptografado = criptografia.criptografar(texto);
+            System.out.println(criptografado);
+        }else if (definicao == 2){
+            String descriptografado = criptografia.descriptografar(texto);
+            System.out.println(descriptografado);
+        } else {
+            System.out.println("Nenhuma ação selecionada");
+        }
+
+    }
+
 
 }
