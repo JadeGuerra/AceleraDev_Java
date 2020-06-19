@@ -19,8 +19,8 @@ Já vou deixando meu agradecimento especial aos devs que me apoiam
 e auxiliam nessa jornada pelo mundo digital sanando dúvidas e
 "dando uma olhadinha" nos meus códigos quando podem.
 
-Tatiana Machado
-Christian Sangenito
-Alexandre Dias
-Felipe Canary
+Tatiana Machado; 
+Christian Sangenito; 
+Alexandre Dias; 
+Felipe Canary; 
 
