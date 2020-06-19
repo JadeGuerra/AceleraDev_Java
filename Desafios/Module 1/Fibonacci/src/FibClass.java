@@ -8,7 +8,7 @@ public class FibClass {
      * @numFibonacci atualiza nos números da sequência Fibonnaci
      * que depois são adicionados à lista
      */
-    public static List<Integer> fibonacci() {
+    public static List<Integer> fibonacci() {//not mess
         List<Integer> listFibonacci = new ArrayList<Integer>();
         //inicializa @listFibonacci
         listFibonacci.add(0);
@@ -35,7 +35,7 @@ public class FibClass {
      * class @isFibonacci
      * return true se a está na list @listFibonacci
      */
-    public static Boolean isFibonacci(Integer a) {
+    public static Boolean isFibonacci(Integer a) {//not mess
         //consulta se @a está na list @fibonacci
         return fibonacci().contains(a);
     }
