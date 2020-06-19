@@ -11,7 +11,7 @@ public class CriptografiaCesariana implements Criptografia {
      */
 
     @Override
-    public String criptografar(String texto) {
+    public String criptografar(String texto) {// not mess
         //@criptText inicializa
         String encodeText = "";
         //@key chave padrão césar
@@ -34,7 +34,7 @@ public class CriptografiaCesariana implements Criptografia {
      */
 
     //encripta os caracteres do texto
-    private static char encriptar(char textChar, int key) {
+    private static char encriptar(char textChar, int key) {//not mess
         //declara @encodeChar
         char encodeChar;
 
