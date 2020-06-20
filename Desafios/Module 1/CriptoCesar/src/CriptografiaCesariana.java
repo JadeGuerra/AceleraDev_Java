@@ -90,7 +90,13 @@ public class CriptografiaCesariana implements Criptografia {
 
         //decripta as minúsculas
         if (textChar >= 97 && textChar <= 122) {
-            decodeChar = (char) ((textChar - 97 - key) % 26 + 97);
+            int valor = ((textChar - 97 - key) % 26 + 97);
+            System.out.println(valor);
+            if (valor > 97 ){
+                decodeChar = (char) (valor);
+            } else {
+                decodeChar = (char) (122 -valor);
+            }
         }
         //decripta as maiúsculas
         else if (textChar >= 65 && textChar <= 90) {
