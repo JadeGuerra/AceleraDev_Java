@@ -1,7 +1,13 @@
 /**
  * Automatizar a criptografia e descriptografia
  * com base na cifra césar com chave padrão (3)
+ * deve Converter Caracteres Para Minusculo Na Criptografia
+ * deve Converter Caracteres Para Minusculo Na Descriptografia
+ * deve Manter Os Numeros Na Criptografia
+ * deve Retornar Erro Quando Criptografa Texto Vazio
+ * deve Retornar Erro Quando DesCriptografa Texto Vazio
  */
+
 public class CriptografiaCesariana implements Criptografia {
 
     /**
@@ -11,11 +17,15 @@ public class CriptografiaCesariana implements Criptografia {
      */
 
     @Override
-    public String criptografar(String texto) {// not mess
+    public String criptografar(String texto) {
+        //@validate retorna o erro quando necessário
+        validate(texto);
         //@criptText inicializa
         String encodeText = "";
         //@key chave padrão césar
         int key = 3;
+        //converte o texto em minusculas
+        texto = texto.toLowerCase();
 
         //recebe o texto por caracteres e encripta
         for (int i = 0; i < texto.length(); i++) {
@@ -33,18 +43,13 @@ public class CriptografiaCesariana implements Criptografia {
      * recebe @key e @textChar de @Criptografar
      */
 
-    //encripta os caracteres do texto
-    private static char encriptar(char textChar, int key) {//not mess
+    private static char encriptar(char textChar, int key) {
         //declara @encodeChar
         char encodeChar;
 
         //encripta as minúsculas
         if (textChar >= 97 && textChar <= 122) {
             encodeChar = (char) ((textChar - 97 + key) % 26 + 97);
-        }
-        //encripta as maiúsculas
-        else if (textChar >= 65 && textChar <= 90) {
-            encodeChar = (char) ((textChar - 65 + key) % 26 + 65);
         }
         //escape de caracteres
         else {
@@ -63,10 +68,14 @@ public class CriptografiaCesariana implements Criptografia {
 
     @Override
     public String descriptografar(String texto) {
+        //@validate retorna o erro quando necessário
+        validate(texto);
         //@decodeText inicializa
         String decodeText = "";
         //@key chave padrão césar
         int key = 3;
+        //converte o texto em minusculas
+        texto = texto.toLowerCase();
 
         //recebe o texto por caracteres e encripta
         for (int i = 0; i < texto.length(); i++) {
@@ -90,12 +99,14 @@ public class CriptografiaCesariana implements Criptografia {
 
         //decripta as minúsculas
         if (textChar >= 97 && textChar <= 122) {
-            decodeChar = (char) ((textChar - 97 - key) % 26 + 97);
+            //@chave recebe posição da letra
+            int chave = (textChar - 97 - key) % 26 + 97;
+            if (chave < 97){
+                chave += 26 ;
+            }
+            decodeChar = (char) (chave);
         }
-        //decripta as maiúsculas
-        else if (textChar >= 65 && textChar <= 90) {
-            decodeChar = (char) ((textChar - 65 - key) % 26 + 65);
-        }
+
         //escape de caracteres
         else {
             decodeChar = textChar;
@@ -105,4 +116,20 @@ public class CriptografiaCesariana implements Criptografia {
         return decodeChar;
     }
 
+
+
+    private void validate(String texto) {
+
+        if (texto == null) {
+
+            throw new NullPointerException();
+
+        } else if (texto.trim().equals("")) {
+
+            throw new IllegalArgumentException();
+
+        }
+
+    }
 }
+
