@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Automatizar a criptografia e descriptografia
  * com base na cifra césar com chave padrão (3)
@@ -68,7 +70,8 @@ public class CriptografiaCesariana implements Criptografia {
         //@key chave padrão césar
         int key = 3;
 
-        //recebe o texto por caracteres e encripta
+
+        //recebe o texto por caracteres e desenencripta
         for (int i = 0; i < texto.length(); i++) {
             //chama @decriptar para descriptografar o caracter e controi o texto
             //criptografado
@@ -88,10 +91,26 @@ public class CriptografiaCesariana implements Criptografia {
         //declara @decodeChar
         char decodeChar;
 
+
         //decripta as minúsculas
         if (textChar >= 97 && textChar <= 122) {
-            decodeChar = (char) ((textChar - 97 - key) % 26 + 97);
+
+            //posição da letra
+            int chave = (textChar - key) % 97;
+
+            //tratar para contar a partir de 97
+            if (chave < 97) {
+                //vai contar até chave chegar a 97
+                for (int i = 0; i < key; i++) {
+                    chave++;
+                }
+            }
+
+            //recebe a chave e transforma em char
+            decodeChar = (char) (chave);
         }
+
+
         //decripta as maiúsculas
         else if (textChar >= 65 && textChar <= 90) {
             decodeChar = (char) ((textChar - 65 - key) % 26 + 65);
