@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Principal {//all mine
 
     public static void main(String[] args) {
-        int modulo = (99 - 3) % 127;
-        System.out.println(modulo);
+
+        System.out.println("Cifra de César");
 
         Scanner s = new Scanner(System.in);
         System.out.print("Escreva o texto: ");
