@@ -4,6 +4,8 @@ public class Principal {//all mine
 
     public static void main(String[] args) {
 
+        System.out.println("Cifra de César");
+
         Scanner s = new Scanner(System.in);
         System.out.print("Escreva o texto: ");
         String texto = s.nextLine();

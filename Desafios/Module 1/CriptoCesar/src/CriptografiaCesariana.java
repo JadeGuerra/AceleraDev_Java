@@ -9,14 +9,19 @@
  */
 
 public class CriptografiaCesariana implements Criptografia {
-    //declaracao de objetos da classe
+    //declaracao das constantes da classe
     
     //@chave chave padrão césar
-    private static int chave = 3;
+    private static final int chave = 3;
     
-    //@modulo recebe o valor que deve calcular modulo
-    private static int modulo = 26 + 97;
+    //@tamanho_alfabeto recebe o tamanho do alfabeto
+    private static final int tamanho_alfabeto = 26;
 
+    //@letra_a recebe posicao letra a em ascii
+    private static final int letra_a = 97;
+    
+    //@letra_z recebe posicao letra z em ascii
+    private static final int letra_z = 122;
 
 
     /**
@@ -56,8 +61,8 @@ public class CriptografiaCesariana implements Criptografia {
         
 
         //encripta as minúsculas
-        if (textChar >= 97 && textChar <= 122) {
-            encodeChar = (char) ((textChar - 97 + chave) % modulo);
+        if (textChar >= letra_a && textChar <= letra_z) {
+            encodeChar = (char) ((textChar - letra_a + chave) % tamanho_alfabeto + letra_a);
         }
         //escape de caracteres
         else {
@@ -105,12 +110,12 @@ public class CriptografiaCesariana implements Criptografia {
         char decodeChar;
 
         //decripta as minúsculas
-        if (textChar >= 97 && textChar <= 122) {
+        if (textChar >= letra_a && textChar <= letra_z) {
             //@posicao recebe posição da letra
-            int posicao = (textChar - 97 - chave) % modulo;
+            int posicao = (textChar - letra_a - chave) % tamanho_alfabeto + letra_a;
             //trata a posição para fazer a volta
-            if (posicao < 97){
-                posicao += 26 ;
+            if (posicao < letra_a){
+                posicao += tamanho_alfabeto ;
             }
             //@decodeChar recebe o char da posicao certa
             decodeChar = (char) (posicao);
