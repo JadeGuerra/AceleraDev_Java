@@ -11,9 +11,9 @@
 
 public class CalculadoraSalario {
     //@inssDiscount initialized
-    static double inssDiscount = 0;
+    static double inssDiscount = 0.00;
     //@irrfDiscount initialized
-    static double irrfDiscount = 0;
+    static double irrfDiscount = 0.00;
 
     public static long calcularSalarioLiquido(double salarioBase) {//not mess
 
@@ -39,12 +39,12 @@ public class CalculadoraSalario {
      */
     private static double calcularInss(double grossSalary) {//not mess
         //@inss receives inss value
-        double inss = 0;
+        double inss = 0.00;
         //salary range test values
         //@firstSalaryRange receives first salary range value
-        double firstSalaryRange = 1500;
+        double firstSalaryRange = 1500.00;
         //@secondSalaryRange receives second salary range value
-        double secondSalaryRange = 4000;
+        double secondSalaryRange = 4000.00;
 
         //discount values
         //@firstRangeDiscount receives first range discount value
@@ -81,15 +81,15 @@ public class CalculadoraSalario {
      */
     private static double calcularIRRF(double grossSalary, double inssDiscount){
         //@irrf initialized
-        double irrf = 0;
+        double irrf = 0.00;
         //@salaryLessInss receives @grossSalary less @inssDiscount
         double salaryLessInss = grossSalary - inssDiscount;
 
         //salary range test values
         //@firstSalaryRange receives first salary range value
-        double firstSalaryRange = 3000;
+        double firstSalaryRange = 3000.00;
         //@secondSalaryRange receives second salary range value
-        double secondSalaryRange = 6000;
+        double secondSalaryRange = 6000.00;
 
         //discount values
         //@firstRangeDiscount receives first range discount value
