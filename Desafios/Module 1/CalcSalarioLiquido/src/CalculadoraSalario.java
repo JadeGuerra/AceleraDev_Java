@@ -11,25 +11,19 @@
 
 public class CalculadoraSalario {
 
-    //@inssDiscount initialized
-    static double inssDiscount = 0.00;
-    //@irrfDiscount initialized
-    static double irrfDiscount = 0.00;
-
+    /**
+     * @cacularSalarioLiquido method returns net salary
+     * @inssDiscount calls @calcularInss to calculate INSS discount
+     * @irrfDiscount calls @calcularIRRF to calculate IRRF discount
+     */
     public static long calcularSalarioLiquido(double salarioBase) {//not mess
 
         //TODO criar tratamento de erro caso receba salario vazio
 
-        //@inssDiscount calculates inss discount value
-        inssDiscount = calcularInss(salarioBase);
-        //@irrfDiscount calculates irrf discount value
-        irrfDiscount = calcularIRRF(salarioBase, inssDiscount);
+        double inssDiscount = calcularInss(salarioBase);
+        double irrfDiscount = calcularIRRF(salarioBase, inssDiscount);
 
-        //@netSalary calculates salary minus discounts
-        Double netSalary = salarioBase - (inssDiscount + irrfDiscount);
-
-        //returns @netSalary
-        return Math.round(netSalary);
+        return Math.round(salarioBase - (inssDiscount + irrfDiscount));
     }
 
     /**
