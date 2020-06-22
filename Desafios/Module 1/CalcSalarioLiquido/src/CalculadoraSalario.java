@@ -1,40 +1,38 @@
- /**
+/**
  * At this challenge we will implement an algorithm responsible for
  * receiving the gross salary as a parameter and returns the net salary
  * with INSS and IRRF discounts. This algorithm must be implemented at
+ *
  * @CalculadoraSalario class and @calcularSalarioLiquido method
  * @calcularSalarioLiquido method must receive a type double value and return a
  * type int value.
- *
+ * <p>
  * Tip: use Math.roud() method to round the result.
  */
 
 public class CalculadoraSalario {
 
-    //@inssDiscount initialized
-    static double inssDiscount = 0.00;
-    //@irrfDiscount initialized
-    static double irrfDiscount = 0.00;
-
+    /**
+     * @cacularSalarioLiquido method returns net salary
+     * @inssDiscount calls @calcularInss to calculate INSS discount
+     * @irrfDiscount calls @calcularIRRF to calculate IRRF discount
+     *
+     * If salary is less than 1039 the method must return 0.
+     */
     public static long calcularSalarioLiquido(double salarioBase) {//not mess
+        if (salarioBase< 1039){
+         return Math.round(0);
+        }
 
-        //TODO criar tratamento de erro caso receba salario vazio
+        double inssDiscount = calcularInss(salarioBase);
+        double irrfDiscount = calcularIRRF(salarioBase, inssDiscount);
 
-        //@inssDiscount calculates inss discount value
-        inssDiscount = calcularInss(salarioBase);
-        //@irrfDiscount calculates irrf discount value
-        irrfDiscount = calcularIRRF(salarioBase, inssDiscount);
-
-        //@netSalary calculates salary minus discounts
-        Double netSalary = salarioBase - (inssDiscount + irrfDiscount);
-
-        //returns @netSalary
-        return Math.round(netSalary);
+        return Math.round(salarioBase - (inssDiscount + irrfDiscount));
     }
 
     /**
      * @calcularInss calculates inss discount value
-     *
+     * <p>
      * Salary Range...........................Discount percentage
      * Until R$ 1.500,00......................8%
      * Since R$ 1.500,01 until R$ 4.000,00....9%
@@ -50,26 +48,24 @@ public class CalculadoraSalario {
         double secondRangeDiscount = 0.09;
         double thirdRangeDiscount = 0.11;
 
-        if (grossSalary <= firstSalaryRange){
+        if (grossSalary <= firstSalaryRange) {
             return grossSalary * firstRangeDiscount;
-        }
-        else if (grossSalary > firstSalaryRange && grossSalary <= secondSalaryRange){
+        } else if (grossSalary > firstSalaryRange && grossSalary <= secondSalaryRange) {
             return grossSalary * secondRangeDiscount;
-        }
-        else {
+        } else {
             return grossSalary * thirdRangeDiscount;
         }
     }
 
     /**
      * @calcularIRRF calculates IRRF discount value
-     *
+     * <p>
      * Salary range............................Discount percentage
      * Until R$ 3.000,00.......................IMMUNE
      * Since R$ 3.000,01 until R$ 6.000,00.....7.5%
      * Above R$ 6.000,00.......................15%
      */
-    private static double calcularIRRF(double grossSalary, double inssDiscount){
+    private static double calcularIRRF(double grossSalary, double inssDiscount) {
         //@salaryLessInss receives @grossSalary less @inssDiscount
         double salaryLessInss = grossSalary - inssDiscount;
 
@@ -81,15 +77,15 @@ public class CalculadoraSalario {
         double secondRangeDiscount = 0.075;
         double thirdRangeDiscount = 0.15;
 
-        if (salaryLessInss <= firstSalaryRange){
-            return salaryLessInss;
-        }
-        else if (salaryLessInss > firstSalaryRange && salaryLessInss <= secondSalaryRange){
+        if (salaryLessInss <= firstSalaryRange) {
+            return 0;
+        } else if (salaryLessInss > firstSalaryRange && salaryLessInss <= secondSalaryRange) {
             return salaryLessInss * secondRangeDiscount;
-        }
-        else{
+        } else {
             return salaryLessInss * thirdRangeDiscount;
         }
-        }
+    }
+
+
 
 }

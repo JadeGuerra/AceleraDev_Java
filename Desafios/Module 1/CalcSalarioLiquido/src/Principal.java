@@ -8,9 +8,9 @@ public class Principal {//all mine
         String salario = s.nextLine();
         double salarioBase = Double.parseDouble(salario);
 
-        double salarioLiquido = CalculadoraSalario.calcularSalarioLiquido(salarioBase);
+        long salarioLiquido = CalculadoraSalario.calcularSalarioLiquido(salarioBase);
 
-        System.out.println(String.valueOf(salarioLiquido));
+        System.out.println(salarioLiquido);
 
 
     }
