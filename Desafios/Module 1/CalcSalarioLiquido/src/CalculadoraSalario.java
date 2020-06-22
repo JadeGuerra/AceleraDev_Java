@@ -10,12 +10,15 @@
  */
 
 public class CalculadoraSalario {
+
     //@inssDiscount initialized
     static double inssDiscount = 0.00;
     //@irrfDiscount initialized
     static double irrfDiscount = 0.00;
 
     public static long calcularSalarioLiquido(double salarioBase) {//not mess
+
+        //TODO criar tratamento de erro caso receba salario vazio
 
         //@inssDiscount calculates inss discount value
         inssDiscount = calcularInss(salarioBase);
@@ -38,37 +41,24 @@ public class CalculadoraSalario {
      * Above R$ 4.000,00......................11%
      */
     private static double calcularInss(double grossSalary) {//not mess
-        //@inss receives inss value
-        double inss = 0.00;
-        //salary range test values
-        //@firstSalaryRange receives first salary range value
+        //salary range values
         double firstSalaryRange = 1500.00;
-        //@secondSalaryRange receives second salary range value
         double secondSalaryRange = 4000.00;
 
         //discount values
-        //@firstRangeDiscount receives first range discount value
         double firstRangeDiscount = 0.08;
-        //@secondRangeDiscount receives second range discount value
         double secondRangeDiscount = 0.09;
-        //@thirdRangeDiscount receives third range discount value
         double thirdRangeDiscount = 0.11;
 
-        //@inss receives inss calculation value based on first range salary
         if (grossSalary <= firstSalaryRange){
-            inss = grossSalary * firstRangeDiscount;
+            return grossSalary * firstRangeDiscount;
         }
-        //@inss receives inss calculation value based on second range salary
         else if (grossSalary > firstSalaryRange && grossSalary <= secondSalaryRange){
-            inss = grossSalary * secondRangeDiscount;
+            return grossSalary * secondRangeDiscount;
         }
-        //@inss receives inss calculation value based on second range salary
         else {
-            inss = grossSalary * thirdRangeDiscount;
+            return grossSalary * thirdRangeDiscount;
         }
-
-        //returns @inss value
-        return (inss);
     }
 
     /**
@@ -80,40 +70,26 @@ public class CalculadoraSalario {
      * Above R$ 6.000,00.......................15%
      */
     private static double calcularIRRF(double grossSalary, double inssDiscount){
-        //@irrf initialized
-        double irrf = 0.00;
         //@salaryLessInss receives @grossSalary less @inssDiscount
         double salaryLessInss = grossSalary - inssDiscount;
 
         //salary range test values
-        //@firstSalaryRange receives first salary range value
         double firstSalaryRange = 3000.00;
-        //@secondSalaryRange receives second salary range value
         double secondSalaryRange = 6000.00;
 
         //discount values
-        //@firstRangeDiscount receives first range discount value
-        double firstRangeDiscount = 0;
-        //@secondRangeDiscount receives second range discount value
         double secondRangeDiscount = 0.075;
-        //@thirdRangeDiscount receives third range discount value
         double thirdRangeDiscount = 0.15;
 
-        //@irrf receives irrf calculation value based on first range salary
         if (salaryLessInss <= firstSalaryRange){
-            irrf = salaryLessInss * firstRangeDiscount;
+            return salaryLessInss;
         }
-        //@irrf receives irrf calculation value based on second range salary
         else if (salaryLessInss > firstSalaryRange && salaryLessInss <= secondSalaryRange){
-            irrf = salaryLessInss * secondRangeDiscount;
+            return salaryLessInss * secondRangeDiscount;
         }
-        //@irrf receives irrf calculation value based on third range salary
         else{
-            irrf = salaryLessInss * thirdRangeDiscount;
+            return salaryLessInss * thirdRangeDiscount;
         }
-
-       //returns @irrf value
-            return (irrf);
         }
 
 }
