@@ -140,4 +140,10 @@ $ exit
 Teste:
 $ gradle -v
 
+Para conseguir usar em tela cheia vc precisa instalar os adicionais de convidado no sistema.
+Abra o terminal do Kubuntu:
+$ sudo apt-get update ; sudo apt-get install virtualbox-guest-utils virtualbox-guest-x11 virtualbox-guest-dkms -y
+
+Se vc estiver em tela cheia, a mágica aconece durante a instalação.
+
 
