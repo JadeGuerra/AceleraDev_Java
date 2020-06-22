@@ -56,22 +56,15 @@ public class CriptografiaCesariana implements Criptografia {
      */
 
     private static char encriptar(char textChar, int chave) {
-        //declara @encodeChar
-        char encodeChar;       
-        
 
         //encripta as minúsculas
-        if (textChar >= letra_a && textChar <= letra_z) {
-            encodeChar = (char) ((textChar - letra_a + chave) % tamanho_alfabeto + letra_a);
-        }
-        //escape de caracteres
-        else {
-            encodeChar = textChar;
+        if (textChar < letra_a || textChar > letra_z) {
+                return textChar;
+            }
+
+            return (char) ((textChar - letra_a + chave) % tamanho_alfabeto + letra_a);
         }
 
-        //@encodeChar retorna o caracter encriptado
-        return encodeChar;
-    }
 
     /**
      * @descriptografar sobrescreve o método em superclasse @criptografia
@@ -110,26 +103,16 @@ public class CriptografiaCesariana implements Criptografia {
         char decodeChar;
 
         //decripta as minúsculas
-        if (textChar >= letra_a && textChar <= letra_z) {
-            //@posicao recebe posição da letra
-            int posicao = (textChar - letra_a - chave) % tamanho_alfabeto + letra_a;
-            //trata a posição para fazer a volta
-            if (posicao < letra_a){
-                posicao += tamanho_alfabeto ;
-            }
-            //@decodeChar recebe o char da posicao certa
-            decodeChar = (char) (posicao);
+        if (textChar < letra_a || textChar > letra_z) {
+            return textChar;
         }
 
-        //escape de caracteres
-        else {
-            //@decodeChar recebe o valor do char
-            decodeChar = textChar;
+        int posicao = (textChar - letra_a - chave) % tamanho_alfabeto + letra_a;
+        if (posicao < letra_a){
+            posicao += tamanho_alfabeto ;
         }
-
-        //@decodeChar retorna o caracter decriptado
-        return decodeChar;
-    }
+        return (char) (posicao);
+        }
 
 
 
