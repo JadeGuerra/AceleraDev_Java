@@ -76,7 +76,7 @@ public class CalculadoraSalario {
         double thirdRangeDiscount = 0.15;
 
         if (salaryLessInss <= firstSalaryRange){
-            return salaryLessInss;
+            return 0;
         }
         else if (salaryLessInss > firstSalaryRange && salaryLessInss <= secondSalaryRange){
             return salaryLessInss * secondRangeDiscount;
