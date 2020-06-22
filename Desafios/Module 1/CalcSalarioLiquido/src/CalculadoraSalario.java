@@ -6,7 +6,7 @@
  * @CalculadoraSalario class and @calcularSalarioLiquido method
  * @calcularSalarioLiquido method must receive a type double value and return a
  * type int value.
- * <p>
+ *
  * Tip: use Math.roud() method to round the result.
  */
 
@@ -32,7 +32,7 @@ public class CalculadoraSalario {
 
     /**
      * @calcularInss calculates inss discount value
-     * <p>
+     *
      * Salary Range...........................Discount percentage
      * Until R$ 1.500,00......................8%
      * Since R$ 1.500,01 until R$ 4.000,00....9%
