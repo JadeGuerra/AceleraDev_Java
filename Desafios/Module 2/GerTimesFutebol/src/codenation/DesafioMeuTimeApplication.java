@@ -63,7 +63,19 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		}
 	}
 
+	/**
+	 * Define um jogador como capitão do seu time.
+	 * Um time deve ter apenas um capitão, por tanto o capitão anterior voltará a ser apenas jogador.
+	 * se jogador informado não exista, retornar JogadorNaoEncontradoException
+	 */
 	public void definirCapitao(Long idJogador) {
+		for (Time time : times){
+			for (Jogador jogador : time.getJogadores()){
+				//
+				//
+
+			}
+		}
 		throw new UnsupportedOperationException();
 	}
 

@@ -19,15 +19,14 @@ public class Jogador {
                          String nome,
                          LocalDate dataNascimento,
                          Integer nivelHabilidade,
-                         BigDecimal salario,
-                         boolean capitao){
+                         BigDecimal salario
+                         ){
         this.id = id;
         this.idTime = idTime;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.nivelHabilidade = nivelHabilidade;
         this.salario = salario;
-        this.capitao = capitao;
     }
     //setters getters
 
