@@ -26,7 +26,7 @@ public class Time {
     }
 
     //setters e getters
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

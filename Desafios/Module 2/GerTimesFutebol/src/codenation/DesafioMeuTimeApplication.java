@@ -25,17 +25,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							String corUniformeSecundario) {
 		//para cada time no objeto time
 		for (Time time : times){
-			//id time recebe o id do time
-			long idTime = time.getId();
 			//se id igual a time
-			if (id == idTime){
+			if (id == time.getId()){
 				//chama a exceção
 				throw new IdentificadorUtilizadoException();
 			}
 			//adiciona um objeto time no array time
 			time = new Time();
-
-
 		}
 
 	}
@@ -49,22 +45,22 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							   LocalDate dataNascimento,
 							   Integer nivelHabilidade,
 							   BigDecimal salario) {
-		for (Jogador jogador : jogadores){
-			//id jogador recebe o id do jogador
-			long idJogador = jogador.getId();
-			//se id igual a jogador
-			if (id == idJogador){
-				//chama a exceção
-				throw new IdentificadorUtilizadoException();
-			}
-			//senão
-			else {
-				//adiciona um objeto time no array time
 
-				throw new IdentificadorUtilizadoException();
 
-				throw new TimeNaoEncontradoException();
+		for (Time time : times){
+			//se id igual time
+			if (idTime == time.getId()){
+				//agora percorre o array jogadores dentro de time
+				for (Jogador jogador: time.getJogadores()){
+					//se idJogador já existir
+					if (id == jogador.getId()){
+						throw new IdentificadorUtilizadoException();
+					}
+					jogador = new Jogador();
+				}
 			}
+			throw new TimeNaoEncontradoException();
+		}
 	}
 
 	public void definirCapitao(Long idJogador) {
