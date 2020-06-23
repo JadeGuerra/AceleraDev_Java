@@ -1,16 +1,21 @@
 package codenation;
 
+import codenation.exceptions.*;
+
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
+
 
 
 public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	//TODO incluir um novo time *exeption identificador *retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
+	public List<Time> times = new ArrayList<Time>();
 
 	/**
-	 * @incluirTime includes new team
-	 * if @id exists return @IdentificadorUtilizadoException
+	 * @incluirTime inclui novo time
+	 * se @id existe retorna @IdentificadorUtilizadoException
 	 */
 
 	public void incluirTime(Long id,
@@ -18,17 +23,48 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							LocalDate dataCriacao,
 							String corUniformePrincipal,
 							String corUniformeSecundario) {
-		throw new UnsupportedOperationException();
+		//para cada time no objeto time
+		for (Time time : times){
+			//id time recebe o id do time
+			long idTime = time.getId();
+			//se id igual a time
+			if (id == idTime){
+				//chama a exceção
+				throw new IdentificadorUtilizadoException();
+			}
+			//adiciona um objeto time no array time
+			time = new Time();
+
+
+		}
+
 	}
-
-
+	/**
+	 * Se @id exista, retornar IdentificadorUtilizadoException
+	 * Se @time  não exista, retornar TimeNaoEncontradoException
+	 */
 	public void incluirJogador(Long id,
 							   Long idTime,
 							   String nome,
 							   LocalDate dataNascimento,
 							   Integer nivelHabilidade,
 							   BigDecimal salario) {
-		throw new UnsupportedOperationException();
+		for (Jogador jogador : jogadores){
+			//id jogador recebe o id do jogador
+			long idJogador = jogador.getId();
+			//se id igual a jogador
+			if (id == idJogador){
+				//chama a exceção
+				throw new IdentificadorUtilizadoException();
+			}
+			//senão
+			else {
+				//adiciona um objeto time no array time
+
+				throw new IdentificadorUtilizadoException();
+
+				throw new TimeNaoEncontradoException();
+			}
 	}
 
 	public void definirCapitao(Long idJogador) {
@@ -74,5 +110,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	public List<Long> buscarTopJogadores(Integer top) {
 		throw new UnsupportedOperationException();
 	}
+
+
 
 }

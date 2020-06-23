@@ -10,10 +10,10 @@ public class Time {
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSecundario;
-    private List<Jogador> jogadores = new ArrayList<Jogador>();
+    public List<Jogador> jogadores = new ArrayList<Jogador>();
 
     //Construtores
-    public void team(Long id,
+    public void time(Long id,
                      String nome,
                      LocalDate dataCriacao,
                      String corUniformePrincipal,
@@ -73,9 +73,10 @@ public class Time {
 
     }
 
-    public List<Jogador> getPlayers(){
+    public List<Jogador> getJogadores(){
 
         return jogadores;
 
     }
+
 }
