@@ -10,7 +10,7 @@ public class Time {
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSecundario;
-    private List<Jogador> jogadores = new ArrayList<Jogador>();
+    public List<Jogador> jogadores = new ArrayList<Jogador>();
 
     //Construtores
     public void time(Long id,
