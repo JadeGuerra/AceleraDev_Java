@@ -6,6 +6,12 @@ import java.util.List;
 
 
 public class DesafioMeuTimeApplication implements MeuTimeInterface {
+	//TODO incluir um novo time *exeption identificador *retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
+
+	/**
+	 * @incluirTime includes new team
+	 * if @id exists return @IdentificadorUtilizadoException
+	 */
 
 	public void incluirTime(Long id,
 							String nome,
@@ -14,6 +20,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							String corUniformeSecundario) {
 		throw new UnsupportedOperationException();
 	}
+
 
 	public void incluirJogador(Long id,
 							   Long idTime,
