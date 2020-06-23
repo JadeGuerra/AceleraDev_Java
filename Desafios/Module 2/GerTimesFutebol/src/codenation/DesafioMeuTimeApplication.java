@@ -1,12 +1,16 @@
 package codenation;
 
+import codenation.exceptions.IdentificadorUtilizadoException;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
+
 
 
 public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	//TODO incluir um novo time *exeption identificador *retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
+	public List<Time> time = new ArrayList<>();
 
 	/**
 	 * @incluirTime includes new team
@@ -18,7 +22,23 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							LocalDate dataCriacao,
 							String corUniformePrincipal,
 							String corUniformeSecundario) {
-		throw new UnsupportedOperationException();
+		//para cada time no objeto time
+		for (Time time : time){
+			//id time recebe o id do time
+			long idTime = time.getId();
+			//se id igual a time
+			if (id == idTime){
+				//chama a exceção
+				throw new IdentificadorUtilizadoException();
+			}
+			//senão
+			else{
+				//adiciona um objeto time no array time
+				time = new Time();
+			}
+
+		}
+
 	}
 
 
@@ -74,5 +94,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	public List<Long> buscarTopJogadores(Integer top) {
 		throw new UnsupportedOperationException();
 	}
+
+
 
 }
