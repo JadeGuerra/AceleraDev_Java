@@ -13,6 +13,20 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	//TODO incluir um novo time *exeption identificador *retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
 	public List<Time> times = new ArrayList<Time>();
 
+	public boolean isTime(long id){
+		for (Time time : times){
+			if (id != time.getId()){
+				return false;
+		}
+	}
+
+	public boolean isJogador(Time time, long id) {
+		for (Jogador jogador : time.getJogadores()) {
+			if (id != jogador.getId()) {
+				return false;
+			}
+	}
+
 	/**
 	 * @incluirTime inclui novo time
 	 * se @id existe retorna @IdentificadorUtilizadoException
@@ -23,18 +37,12 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							LocalDate dataCriacao,
 							String corUniformePrincipal,
 							String corUniformeSecundario) {
-		//para cada time no objeto time
-		for (Time time : times){
-			//se id igual a time
-			if (id == time.getId()){
-				//chama a exceção
-				throw new IdentificadorUtilizadoException();
-			}
-			//adiciona um objeto time no array time
-			time = new Time();
+		if (isTime(id)){
+			throw new IdentificadorUtilizadoException();
 		}
-
+		Time time = new Time();
 	}
+
 	/**
 	 * Se @id exista, retornar IdentificadorUtilizadoException
 	 * Se @time  não exista, retornar TimeNaoEncontradoException
