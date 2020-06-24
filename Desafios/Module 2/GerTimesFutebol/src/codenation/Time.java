@@ -79,4 +79,14 @@ public class Time {
 
     }
 
+    //testa se existe id do jogador
+    public boolean isJogador(Long idJogador) {
+        for (Jogador jogador : getJogadores()) {
+            if (idJogador == jogador.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

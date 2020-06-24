@@ -13,6 +13,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	//TODO incluir um novo time *exeption identificador *retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
 	public List<Time> times = new ArrayList<Time>();
 
+
 	/**
 	 * @incluirTime inclui novo time
 	 * se @id existe retorna @IdentificadorUtilizadoException
@@ -23,18 +24,12 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							LocalDate dataCriacao,
 							String corUniformePrincipal,
 							String corUniformeSecundario) {
-		//para cada time no objeto time
-		for (Time time : times){
-			//se id igual a time
-			if (id == time.getId()){
-				//chama a exceção
-				throw new IdentificadorUtilizadoException();
-			}
-			//adiciona um objeto time no array time
-			time = new Time();
+		if(times.contains(id)){
+			throw new IdentificadorUtilizadoException();
 		}
-
+		Time time = new Time();
 	}
+
 	/**
 	 * Se @id exista, retornar IdentificadorUtilizadoException
 	 * Se @time  não exista, retornar TimeNaoEncontradoException
@@ -47,21 +42,19 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 							   BigDecimal salario) {
 
 
-		for (Time time : times){
-			//se id igual time
-			if (idTime == time.getId()){
-				//agora percorre o array jogadores dentro de time
-				for (Jogador jogador: time.getJogadores()){
-					//se idJogador já existir
-					if (id == jogador.getId()){
-						throw new IdentificadorUtilizadoException();
-					}
-					jogador = new Jogador();
-				}
-			}
-			throw new TimeNaoEncontradoException();
+		if (times.contains(idTime)) {
+
 		}
+		throw new TimeNaoEncontradoException();
+
+		if (jogadores.contains) {
+			throw new IdentificadorUtilizadoException();
+		}
+		Jogador jogador = new Jogador();
+
+
 	}
+
 
 	/**
 	 * Define um jogador como capitão do seu time.
@@ -87,8 +80,20 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	* Retorna o `nome` do time.
+	* Caso o time não exista, retornar TimeNaoEncontradoException
+	*/
 	public String buscarNomeTime(Long idTime) {
-		throw new UnsupportedOperationException();
+		for (Time time : times){
+			//se id igual a time
+			if (idTime == time.getId()){
+				//retorna nome do time
+				return time.getNome();
+			}
+			//retorna o erro
+			throw new TimeNaoEncontradoException();
+		}
 	}
 
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
@@ -102,7 +107,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	public Long buscarJogadorMaisVelho(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
-
+	//time
 	public List<Long> buscarTimes() {
 		throw new UnsupportedOperationException();
 	}
