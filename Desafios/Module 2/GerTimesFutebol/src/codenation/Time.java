@@ -65,11 +65,6 @@ public class Time {
     public void setCorUniformeSecundario(String corUniformeSecundario) {
         this.corUniformeSecundario = corUniformeSecundario;
     }
-
-
     //Métodos
-
-
-    }
 
 }
