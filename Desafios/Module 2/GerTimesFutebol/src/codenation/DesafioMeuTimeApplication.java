@@ -13,6 +13,8 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	public List<Time> listaTimes = new ArrayList<Time>();
 	public List<Jogador> listaJogadores = new ArrayList<Jogador>();
 
+	//tentando resolver as chamadas de classe
+
 	public long validaJogador(long idJogador){
 	    for (Jogador jogador : listaJogadores){
 	        if (idJogador == jogador.getId()){
