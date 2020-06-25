@@ -68,24 +68,34 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * Um time deve ter apenas um capitão, por tanto o capitão anterior voltará a ser apenas jogador.
 	 * Long `idJogador`* Identificador do jogador.
 	 * **Exceções:**
-	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
+	 * Caso o jogador informado não exista, retornar
+	 * @param idJogador Long
+	 * @call jogador.setCapitao()
+	 * @exception JogadorNaoEncontradoException
 	 */
 	public void definirCapitao(Long idJogador) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * Mostra o `identificador` do capitão do time.
-	 * - Long `idTime`* Identificador do Time
-	 * **Exceções:**
-	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
-	 * Caso o time informado não tenha um capitão, retornar CapitaoNaoInformadoException
 	 * @param idTime
-	 * @return
+	 * @return Long jogador.getId() if jogador.isCapitao()
+	 * @exception CapitaoNaoInformadoException
+	 * @exception TimeNaoEncontradoException
 	 */
 
 	public Long buscarCapitaoDoTime(Long idTime) {
-		throw new UnsupportedOperationException();
+		if (listaTimes.contains(idTime)){
+			for (Jogador jogador : listaJogadores){
+				if (idTime == jogador.getIdTime()){
+					if (jogador.isCapitao()){
+						return jogador.getId();
+					}
+				}
+			}
+			throw new CapitaoNaoInformadoException();
+		}
+		throw new TimeNaoEncontradoException();
 	}
 
 	/**
@@ -121,15 +131,20 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * Retorna a lista com o `identificador` de todos os jogadores do time, ordenada pelo `id`.
-	 * Long `idTime`* Identificador do Time
-	 * **Exceções**
-	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return List <Long>idJogadores</Long>
+	 * @exception  TimeNaoEncontradoException
 	 */
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
-		throw new UnsupportedOperationException();
+		List<Long> idJogadores = new List<Long>;
+		if (listaTimes.contains(idTime)){
+			for (Jogador jogador : listaJogadores){
+				if (idTime == jogador.getIdTime()){
+					idJogadores. add(jogador.getId());
+				}
+			} return idJogadores;
+		}
+		throw new TimeNaoEncontradoException();
 	}
 
 	/**
