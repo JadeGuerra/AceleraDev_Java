@@ -65,20 +65,63 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 			} throw new TimeNaoEncontradoException();
 	}
 
+	/**
+	 * Define um jogador como capitão do seu time.
+	 * Um time deve ter apenas um capitão, por tanto o capitão anterior voltará a ser apenas jogador.
+	 * Long `idJogador`* Identificador do jogador.
+	 * **Exceções:**
+	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
+	 */
 	public void definirCapitao(Long idJogador) {
 		throw new UnsupportedOperationException();
 	}
+
+	/**
+	 * Mostra o `identificador` do capitão do time.
+	 * - Long `idTime`* Identificador do Time
+	 * **Exceções:**
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * Caso o time informado não tenha um capitão, retornar CapitaoNaoInformadoException
+	 * @param idTime
+	 * @return
+	 */
 
 	public Long buscarCapitaoDoTime(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna o `nome` do jogador.
+	 * Long `idJogador`* Identificador do jogador
+	 * **Exceções**
+	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
+	 * @param idJogador
+	 * @return
+	 */
 	public String buscarNomeJogador(Long idJogador) {
-		throw new UnsupportedOperationException();
+		for (Jogador jogador: listaJogadores){
+			if (idJogador == jogador.getId(idJogador)){
+				return jogador.getNome();
+			}
+		}
+		throw new JogadorNaoEncontradoException();
 	}
 
+	/**
+	 * Retorna o `nome` do time.
+	 * Long `idTime`* Identificador do Time
+	 * **Exceções**
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * @param idTime
+	 * @return
+	 */
 	public String buscarNomeTime(Long idTime) {
-		throw new UnsupportedOperationException();
+		for (Time time : listaTimes){
+			if (idTime == time.getId()){
+				return time.getNome();
+			}
+		}
+		throw new TimeNaoEncontradoException();
 	}
 
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
