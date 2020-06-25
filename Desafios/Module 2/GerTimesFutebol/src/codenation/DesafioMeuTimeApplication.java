@@ -13,17 +13,15 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     public List<Jogador> listaJogadores = new ArrayList<Jogador>();
 
 	/**
-	 * Realiza a inclusão de um novo time.
+	 * @param id
+	 * @param nome
+	 * @param dataCriacao
+	 * @param corUniformePrincipal
+	 * @param corUniformeSecundario
 	 *
-	 * Long `id`* Identificador do time
-	 * String `nome`* Nome do Time
-	 * LocalDate `dataCriacao`* Data de criação do time
-	 * String `corUniformePrincipal`* Cor do uniforme principal do time
-	 * String `corUniformeSecundario`* Cor do uniforme secundário do time
-	 *
-	 * **Exceções:**
-	 *
-	 * Caso o `identificador` já exista, retornar IdentificadorUtilizadoException
+	 * @create new Time()
+	 * @add time to listaTimes
+	 * @exception  IdentificadorUtilizadoException
 	 */
     public void incluirTime(Long id,
 							String nome,
@@ -38,17 +36,17 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * Long `id`* Identificador do Jogador
-	 * Long `idTime`* Identificador do time
-	 * String `nome`* Nome do Jogador
-	 * LocalDate `dataNascimento`* Data de nascimento do Jogador
-	 * Integer `nivelHabilidade`* Nível de habilidade do jogador (0 a 100)
-	 * BigDecimal `salario`* Salário do jogador
+	 * @param id
+	 * @param idTime
+	 * @param nome
+	 * @param dataNascimento
+	 * @param nivelHabilidade
+	 * @param salario
 	 *
-	 * **Exceções:**
-	 *
-	 * Caso o `identificador` já exista, retornar IdentificadorUtilizadoException
-	 * Caso o time informado não exista, retornar `TimeNaoEncontradoException
+	 * @create new Jogador
+	 * @add jogador to listaJogadores
+	 * @exception IdentificadorUtilizadoException
+	 * @exception TimeNaoEncontradoException
 	 */
 	public void incluirJogador(Long id,
 							   Long idTime,
@@ -91,16 +89,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * Retorna o `nome` do jogador.
-	 * Long `idJogador`* Identificador do jogador
-	 * **Exceções**
-	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
 	 * @param idJogador
-	 * @return
+	 * @return String jogador.getNome()
+	 * @exception JogadorNaoEncontradoException
 	 */
 	public String buscarNomeJogador(Long idJogador) {
 		for (Jogador jogador: listaJogadores){
-			if (idJogador == jogador.getId(idJogador)){
+			if (idJogador == jogador.getId()){
 				return jogador.getNome();
 			}
 		}
@@ -113,7 +108,8 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * **Exceções**
 	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return String time.getNome()
+	 * @exception TimeNaoEncontradoException
 	 */
 	public String buscarNomeTime(Long idTime) {
 		for (Time time : listaTimes){
@@ -124,30 +120,84 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		throw new TimeNaoEncontradoException();
 	}
 
+	/**
+	 * Retorna a lista com o `identificador` de todos os jogadores do time, ordenada pelo `id`.
+	 * Long `idTime`* Identificador do Time
+	 * **Exceções**
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * @param idTime
+	 * @return
+	 */
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna o `identificador` do melhor jogador do time.
+	 * Long `idTime`* Identificador do time.
+	 * **Exceções**:
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * @param idTime
+	 * @return
+	 */
 	public Long buscarMelhorJogadorDoTime(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna o `identificador` do jogador mais velho do time. Usar o menor `identificador` como critério de desempate.
+	 * Long idTime* Identificador do time
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * @param idTime
+	 * @return
+	 */
 	public Long buscarJogadorMaisVelho(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna uma lista com o `identificador` de todos os times cadastrado, ordenada pelo `identificador`.
+	 * Retornar uma lista vazia caso não encontre times cadastrados.
+	 * @return
+	 */
 	public List<Long> buscarTimes() {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna o `identificador` do jogador com maior salário do time.
+	 * Usar o menor `identificador` como critério de desempate.
+	 * Long `idTime`* Identificador do time.
+	 * **Exceções**:
+	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
+	 * @param idTime
+	 * @return
+	 */
 	public Long buscarJogadorMaiorSalario(Long idTime) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna o `salário` do jogador.
+	 * Long `idJogador`* Identificador do jogador
+	 * **Exceções**:
+	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
+	 * @param idJogador
+	 * @return
+	 */
 	public BigDecimal buscarSalarioDoJogador(Long idJogador) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Retorna uma lista com o `identificador` dos `top` melhores jogadores,
+	 * utilizar o menor `identificador` como critério de desempate.
+	 * Integer `top`* Quantidade de jogares na lista
+	 * **Exceções**:
+	 * Caso não exista nenhum jogador cadastrado, retornar uma lista vazia.
+	 * @param top
+	 * @return
+	 */
 	public List<Long> buscarTopJogadores(Integer top) {
 		throw new UnsupportedOperationException();
 	}
