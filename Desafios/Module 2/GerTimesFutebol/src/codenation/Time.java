@@ -13,7 +13,7 @@ public class Time {
 
 
     //Construtores
-    public void time(Long id,
+    public Time(Long id,
                      String nome,
                      LocalDate dataCriacao,
                      String corUniformePrincipal,

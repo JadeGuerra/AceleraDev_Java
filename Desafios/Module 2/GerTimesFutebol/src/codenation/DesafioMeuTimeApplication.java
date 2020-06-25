@@ -9,15 +9,15 @@ import java.util.*;
 
 
 public class DesafioMeuTimeApplication implements MeuTimeInterface {
-    public List<Time> listaTimes = new ArrayList<Time>();
-    public List<Jogador> listaJogadores = new ArrayList<Jogador>();
+    public List<Time> listaTimes = new ArrayList<>();
+    public List<Jogador> listaJogadores = new ArrayList<>();
 
 	/**
-	 * @param id
-	 * @param nome
-	 * @param dataCriacao
-	 * @param corUniformePrincipal
-	 * @param corUniformeSecundario
+	 * @param id <Long></Long>
+	 * @param nome <String></String>
+	 * @param dataCriacao <LocalDate></LocalDate>
+	 * @param corUniformePrincipal <String></String>
+	 * @param corUniformeSecundario <String></String>
 	 *
 	 * @create new Time()
 	 * @add time to listaTimes
@@ -31,19 +31,19 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		if(listaTimes.contains(id)) {
 			throw new IdentificadorUtilizadoException();
 		}
-		Time time = new Time();
+		Time time = new Time(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario);
 		listaTimes.add(time);
 	}
 
 	/**
-	 * @param id
-	 * @param idTime
-	 * @param nome
-	 * @param dataNascimento
-	 * @param nivelHabilidade
-	 * @param salario
+	 * @param id <Long></Long>
+	 * @param idTime <Long></Long>
+	 * @param nome <String></String>
+	 * @param dataNascimento <LocalDate></LocalDate>
+	 * @param nivelHabilidade <Integer></Integer>
+	 * @param salario <BigDecimal></BigDecimal>
 	 *
-	 * @create new Jogador
+	 * @create <new> Jogador
 	 * @add jogador to listaJogadores
 	 * @exception IdentificadorUtilizadoException
 	 * @exception TimeNaoEncontradoException
@@ -58,7 +58,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 			throw new IdentificadorUtilizadoException();
 		}else
 			if (listaTimes.contains(idTime)){
-				Jogador jogador = new Jogador();
+				Jogador jogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
 				listaJogadores.add(jogador);
 			} throw new TimeNaoEncontradoException();
 	}
@@ -83,11 +83,10 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception CapitaoNaoInformadoException
 	 * @exception TimeNaoEncontradoException
 	 */
-
 	public Long buscarCapitaoDoTime(Long idTime) {
 		if (listaTimes.contains(idTime)){
 			for (Jogador jogador : listaJogadores){
-				if (idTime == jogador.getIdTime()){
+				if (idTime.equals(jogador.getIdTime())){
 					if (jogador.isCapitao()){
 						return jogador.getId();
 					}
@@ -105,7 +104,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 */
 	public String buscarNomeJogador(Long idJogador) {
 		for (Jogador jogador: listaJogadores){
-			if (idJogador == jogador.getId()){
+			if (idJogador.equals(jogador.getId())){
 				return jogador.getNome();
 			}
 		}
@@ -113,17 +112,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * Retorna o `nome` do time.
-	 * Long `idTime`* Identificador do Time
-	 * **Exceções**
-	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
 	 * @return String time.getNome()
 	 * @exception TimeNaoEncontradoException
 	 */
 	public String buscarNomeTime(Long idTime) {
 		for (Time time : listaTimes){
-			if (idTime == time.getId()){
+			if (idTime.equals(time.getId())){
 				return time.getNome();
 			}
 		}
@@ -139,7 +134,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		List<Long> idJogadores = new List<Long>;
 		if (listaTimes.contains(idTime)){
 			for (Jogador jogador : listaJogadores){
-				if (idTime == jogador.getIdTime()){
+				if (idTime.equals(jogador.getIdTime())){
 					idJogadores. add(jogador.getId());
 				}
 			} return idJogadores;
