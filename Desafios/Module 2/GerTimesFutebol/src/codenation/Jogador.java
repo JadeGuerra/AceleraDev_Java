@@ -83,8 +83,13 @@ public class Jogador {
     }
 
     public void setCapitao(boolean capitao) {
-        capitao = capitao;
+        capitao = true;
+    }
+
+    public void deleteCapitao (boolean capitao){
+        capitao = false;
     }
 
     //métodos
+
 }

@@ -10,7 +10,7 @@ public class Time {
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSecundario;
-    public List<Jogador> jogadores = new ArrayList<Jogador>();
+
 
     //Construtores
     public void time(Long id,
@@ -66,18 +66,9 @@ public class Time {
         this.corUniformeSecundario = corUniformeSecundario;
     }
 
+
     //Métodos
-    public void addJogador(Jogador jogador){
 
-        jogadores.add(jogador);
-
-    }
-
-    public List<Jogador> getJogadores(){
-
-        return jogadores;
-
-    }
 
     }
 
