@@ -82,11 +82,11 @@ public class Jogador {
         return capitao;
     }
 
-    public void setCapitao(boolean capitao) {
+    public void setCapitao() {
         capitao = true;
     }
 
-    public void deleteCapitao (boolean capitao){
+    public void deleteCapitao (){
         capitao = false;
     }
 

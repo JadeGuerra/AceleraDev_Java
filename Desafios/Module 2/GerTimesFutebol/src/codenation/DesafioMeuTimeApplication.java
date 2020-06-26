@@ -23,17 +23,22 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @add time to listaTimes
 	 * @exception  IdentificadorUtilizadoException
 	 */
-    public void incluirTime(Long id,
-							String nome,
-							LocalDate dataCriacao,
-							String corUniformePrincipal,
-							String corUniformeSecundario) {
-		if(listaTimes.contains(id)) {
-			throw new IdentificadorUtilizadoException();
-		}
-		Time time = new Time(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario);
-		listaTimes.add(time);
+    public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
+        if (listaTimes.contains(id)){
+            throw new IdentificadorUtilizadoException();
+        }
+        Time time = new Time(id, nome, dataCriacao, corUniformePrincipal, corUniformeSecundario);
+        listaTimes.add(time);
 	}
+
+	public boolean validaTime (Long idTime){
+
+        for (Time time : listaTimes){
+            if (idTime == time.getId()){
+                return true;
+            }
+        } throw new TimeNaoEncontradoException();
+    }
 
 	/**
 	 * @param id <Long></Long>
@@ -48,20 +53,30 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception IdentificadorUtilizadoException
 	 * @exception TimeNaoEncontradoException
 	 */
-	public void incluirJogador(Long id,
-							   Long idTime,
-							   String nome,
-							   LocalDate dataNascimento,
-							   Integer nivelHabilidade,
-							   BigDecimal salario) {
-		if (listaJogadores.contains(id)){
-			throw new IdentificadorUtilizadoException();
-		}else
-			if (listaTimes.contains(idTime)){
-				Jogador jogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
-				listaJogadores.add(jogador);
-			} throw new TimeNaoEncontradoException();
+	public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
+		if (!validaIdJogador(id)){
+            if (validaTime(idTime)){
+                Jogador jogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
+                listaJogadores.add(jogador);
+            }
+        }
 	}
+
+	public boolean validaIdJogador (Long idJogador){
+	    for (Jogador jogador : listaJogadores){
+	        if (idJogador.equals(jogador.getId())){
+	            throw new IdentificadorUtilizadoException();
+            }
+        } return false;
+    }
+
+    public boolean validaJogador (Long idJogador){
+        for (Jogador jogador : listaJogadores){
+            if (idJogador.equals(jogador.getId())){
+                return true;
+            }
+        } throw new JogadorNaoEncontradoException();
+    }
 
 	/**
 	 * Define um jogador como capitão do seu time.
@@ -74,8 +89,34 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception JogadorNaoEncontradoException
 	 */
 	public void definirCapitao(Long idJogador) {
-		throw new UnsupportedOperationException();
+	    validaJogador(idJogador);
+	    zeraCapitao(idJogador);
+        for (Jogador jogador : listaJogadores){
+            if (!jogador.isCapitao()){
+                jogador.setCapitao();
+            }
+        }
+
 	}
+
+	public Long buscarTimeJogador (Long idJogador){
+	    Long time = 0l;
+	    for (Jogador jogador : listaJogadores){
+	        if (jogador.equals(idJogador)){
+	            time = jogador.getIdTime();
+            }
+        }
+        return time;
+    }
+
+	public void zeraCapitao (Long idJogador){
+	    Long time = buscarTimeJogador(idJogador);
+	    for (Jogador jogador : listaJogadores){
+	        if (jogador.equals(time)){
+	            jogador.deleteCapitao();
+            }
+        }
+    }
 
 	/**
 	 * @param idTime
@@ -84,18 +125,17 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception TimeNaoEncontradoException
 	 */
 	public Long buscarCapitaoDoTime(Long idTime) {
-		if (listaTimes.contains(idTime)){
-			for (Jogador jogador : listaJogadores){
-				if (idTime.equals(jogador.getIdTime())){
-					if (jogador.isCapitao()){
-						return jogador.getId();
-					}
+	   	validaTime(idTime);
+	   	for (Jogador jogador : listaJogadores){
+			if (idTime.equals(jogador.getIdTime())){
+				if (jogador.isCapitao()){
+					return jogador.getId();
 				}
 			}
-			throw new CapitaoNaoInformadoException();
 		}
-		throw new TimeNaoEncontradoException();
+	   	throw new CapitaoNaoInformadoException();
 	}
+
 
 	/**
 	 * @param idJogador
@@ -103,7 +143,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception JogadorNaoEncontradoException
 	 */
 	public String buscarNomeJogador(Long idJogador) {
-		for (Jogador jogador: listaJogadores){
+		for (Jogador jogador : listaJogadores){
 			if (idJogador.equals(jogador.getId())){
 				return jogador.getNome();
 			}
@@ -118,7 +158,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 */
 	public String buscarNomeTime(Long idTime) {
 		for (Time time : listaTimes){
-			if (idTime.equals(time.getId())){
+			if (idTime == time.getId()){
 				return time.getNome();
 			}
 		}
@@ -131,47 +171,67 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception  TimeNaoEncontradoException
 	 */
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
-		List<Long> idJogadores = new List<Long>;
-		if (listaTimes.contains(idTime)){
+		List<Long> idJogadores = new ArrayList<>();
+		if (validaTime(idTime)){
 			for (Jogador jogador : listaJogadores){
 				if (idTime.equals(jogador.getIdTime())){
-					idJogadores. add(jogador.getId());
+					idJogadores.add(jogador.getId());
 				}
-			} return idJogadores;
+			}
 		}
-		throw new TimeNaoEncontradoException();
+		return idJogadores;
 	}
 
 	/**
-	 * Retorna o `identificador` do melhor jogador do time.
-	 * Long `idTime`* Identificador do time.
-	 * **Exceções**:
-	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return idMelhorJogadorTime <Long></Long>
+     * @exception TimeNaoEncontradoException
 	 */
 	public Long buscarMelhorJogadorDoTime(Long idTime) {
-		throw new UnsupportedOperationException();
+	    int habilidade = 0;
+	    Long idMelhorJogadorDoTime = 0l;
+		if (validaTime(idTime)){
+		    for (Jogador jogador : listaJogadores){
+		        if (habilidade < jogador.getNivelHabilidade()){
+		            habilidade = jogador.getNivelHabilidade();
+		            idMelhorJogadorDoTime = jogador.getId();
+                }
+            }
+        }
+		return idMelhorJogadorDoTime;
 	}
 
 	/**
-	 * Retorna o `identificador` do jogador mais velho do time. Usar o menor `identificador` como critério de desempate.
+	 * Retorna o `identificador` do jogador mais velho do time.
+     * Usar o menor `identificador` como critério de desempate.
 	 * Long idTime* Identificador do time
 	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return jogador.getId()
 	 */
 	public Long buscarJogadorMaisVelho(Long idTime) {
-		throw new UnsupportedOperationException();
+		Long jogadorMaisVelho = 0l;
+		LocalDate dataNascimento = LocalDate.now();
+	    validaTime(idTime);
+	    for (Jogador jogador : listaJogadores){
+	        if (idTime == jogador.getIdTime()){
+		        if (dataNascimento.isAfter(jogador.getDataNascimento()) || dataNascimento.isEqual(jogador.getDataNascimento()) && jogadorMaisVelho > jogador.getId()){
+		            dataNascimento = jogador.getDataNascimento();
+		            jogadorMaisVelho = jogador.getId();
+		        }
+	        }
+	    }return jogadorMaisVelho;
 	}
 
 	/**
-	 * Retorna uma lista com o `identificador` de todos os times cadastrado, ordenada pelo `identificador`.
-	 * Retornar uma lista vazia caso não encontre times cadastrados.
-	 * @return
+	 * @return List <Long></Long>
 	 */
 	public List<Long> buscarTimes() {
-		throw new UnsupportedOperationException();
+		List <Long> listaIdTime = new ArrayList<Long>();
+		for(Time time : listaTimes){
+		    listaIdTime.add(time.getId());
+        }
+		return listaIdTime;
 	}
 
 	/**
@@ -184,19 +244,33 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @return
 	 */
 	public Long buscarJogadorMaiorSalario(Long idTime) {
-		throw new UnsupportedOperationException();
+        Long jogadorComMaiorSalario = 100l;
+        BigDecimal maiorSalario = null;
+        validaTime(idTime);
+            for (Jogador jogador : listaJogadores) {
+                if (jogador.getIdTime() == idTime) {
+                    if (maiorSalario.compareTo(jogador.getSalario()) < 0 || (maiorSalario.compareTo(jogador.getSalario()) == 0 && jogadorComMaiorSalario > jogador.getId())) {
+                        maiorSalario = jogador.getSalario();
+                        jogadorComMaiorSalario = jogador.getId();
+                    }
+                }
+            }
+        return jogadorComMaiorSalario;
+
 	}
 
 	/**
-	 * Retorna o `salário` do jogador.
-	 * Long `idJogador`* Identificador do jogador
-	 * **Exceções**:
-	 * Caso o jogador informado não exista, retornar JogadorNaoEncontradoException
 	 * @param idJogador
-	 * @return
+	 * @return jogador.getSalario() <BigDecimal></BigDecimal>
+     * @exception JogadorNaoEncontradoException
 	 */
 	public BigDecimal buscarSalarioDoJogador(Long idJogador) {
-		throw new UnsupportedOperationException();
+        for (Jogador jogador : listaJogadores){
+            if (idJogador == jogador.getId()){
+                return jogador.getSalario();
+            }
+        }
+        throw new JogadorNaoEncontradoException();
 	}
 
 	/**
@@ -209,7 +283,17 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @return
 	 */
 	public List<Long> buscarTopJogadores(Integer top) {
-		throw new UnsupportedOperationException();
+        List<Long> idTopJogadores = new ArrayList<>();
+        int maiorHabilidade = 0;
+        for(int i = 0; i < top; i++){
+
+
+        }
+
+        return idTopJogadores;
 	}
+
+
+
 
 }
