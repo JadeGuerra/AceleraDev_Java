@@ -6,6 +6,7 @@ import codenation.exceptions.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class DesafioMeuTimeApplication implements MeuTimeInterface {
@@ -32,7 +33,6 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	public boolean validaTime (Long idTime){
-
         for (Time time : listaTimes){
             if (idTime == time.getId()){
                 return true;
@@ -54,28 +54,28 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * @exception TimeNaoEncontradoException
 	 */
 	public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
-		if (!validaIdJogador(id)){
-            if (validaTime(idTime)){
-                Jogador jogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
-                listaJogadores.add(jogador);
-            }
-        }
+		if (validaIdJogador(id)){
+			if (validaTime(idTime)){
+				Jogador jogador = new Jogador(id, idTime, nome, dataNascimento, nivelHabilidade, salario);
+				listaJogadores.add(jogador);
+			}
+		}
 	}
 
 	public boolean validaIdJogador (Long idJogador){
-	    for (Jogador jogador : listaJogadores){
-	        if (idJogador.equals(jogador.getId())){
-	            throw new IdentificadorUtilizadoException();
-            }
-        } return false;
+		for (Jogador jogador : listaJogadores){
+			if (idJogador == jogador.getId()){
+				throw new IdentificadorUtilizadoException();
+			}
+		} return true;
     }
 
     public boolean validaJogador (Long idJogador){
-        for (Jogador jogador : listaJogadores){
-            if (idJogador.equals(jogador.getId())){
-                return true;
-            }
-        } throw new JogadorNaoEncontradoException();
+		for (Jogador jogador : listaJogadores){
+			if (idJogador.equals(jogador.getId())){
+				return true;
+			}
+		} throw new JogadorNaoEncontradoException();
     }
 
 	/**
@@ -280,17 +280,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * **Exceções**:
 	 * Caso não exista nenhum jogador cadastrado, retornar uma lista vazia.
 	 * @param top
-	 * @return
+	 * @return List <Long></Long>
 	 */
 	public List<Long> buscarTopJogadores(Integer top) {
-        List<Long> idTopJogadores = new ArrayList<>();
-        int maiorHabilidade = 0;
-        for(int i = 0; i < top; i++){
-
-
-        }
-
-        return idTopJogadores;
+        List<Long> stream = listaJogadores.stream().
+                sorted(Comparator.comparingInt(Jogador::getNivelHabilidade).reversed()).
+                limit(top).map(Jogador::getId).collect(Collectors.toList());
+        return stream;
 	}
 
 
