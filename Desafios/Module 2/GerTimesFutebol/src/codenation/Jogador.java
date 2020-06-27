@@ -14,7 +14,7 @@ public class Jogador {
     private boolean capitao = false;
     //construtor
 
-    public void jogador (Long id,
+    public Jogador (Long id,
                          Long idTime,
                          String nome,
                          LocalDate dataNascimento,
@@ -82,11 +82,11 @@ public class Jogador {
         return capitao;
     }
 
-    public void setCapitao(boolean capitao) {
+    public void setCapitao() {
         capitao = true;
     }
 
-    public void deleteCapitao (boolean capitao){
+    public void deleteCapitao (){
         capitao = false;
     }
 

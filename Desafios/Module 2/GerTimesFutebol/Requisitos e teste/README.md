@@ -146,7 +146,8 @@ Retornar uma lista vazia caso não encontre times cadastrados.
 
 ### @Desafio("buscarJogadorMaiorSalario")
 
-Retorna o `identificador` do jogador com maior salário do time. Usar o menor `identificador` como critério de desempate.
+Retorna o `identificador` do jogador com maior salário do time. 
+Usar o menor `identificador` como critério de desempate.
 
 - Long `idTime`* Identificador do time.
 
@@ -166,7 +167,8 @@ Retorna o `salário` do jogador.
 
 ### @Desafio("buscarTopJogadores")
 
-Retorna uma lista com o `identificador` dos `top` melhores jogadores, utilizar o menor `identificador` como critério de desempate.
+Retorna uma lista com o `identificador` dos `top` melhores jogadores, 
+utilizar o menor `identificador` como critério de desempate.
 
 - Integer `top`* Quantidade de jogares na lista
 
