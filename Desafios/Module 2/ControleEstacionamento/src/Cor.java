@@ -1,3 +1,3 @@
-public enum Cor {
+public enum Cor { //not mess
     PRETO,BRANCO,COLORIDO
 }
