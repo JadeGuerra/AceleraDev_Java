@@ -46,6 +46,20 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     }
 
 	/**
+	 * Se o id do time já existir deve retornar exceção.
+	 * @param idTime não deve estar em listaTimes.
+	 * @exception IdentificadorUtilizadoException
+	 */
+	public boolean validaIdTime (Long idTime){
+		for (Time time : listaTimes){
+			if (idTime == time.getId()){
+				throw new IdentificadorUtilizadoException();
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Deve incluir um novo jogador na listaJogadores.
 	 * @param id
 	 * @param idTime
@@ -272,7 +286,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * **Exceções**:
 	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return id do jogador com maior salário
 	 */
 	public Long buscarJogadorMaiorSalario(Long idTime) {
         Long jogadorComMaiorSalario = 100l;

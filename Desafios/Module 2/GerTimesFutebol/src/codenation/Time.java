@@ -1,6 +1,6 @@
 package codenation;
 /**
- * Time é a classe com contrutor, getters e setters referente ao time.
+ * Time é a classe com construtor, getters e setters referente ao time.
  */
 
 import java.time.LocalDate;

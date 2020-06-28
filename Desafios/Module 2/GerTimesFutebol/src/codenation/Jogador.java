@@ -1,7 +1,7 @@
 package codenation;
 
 /**
- * Jogador é a classe com contrutor, getters e setters para jogador.
+ * Jogador é a classe com construtor, getters e setters para jogador.
  */
 
 import java.math.BigDecimal;
