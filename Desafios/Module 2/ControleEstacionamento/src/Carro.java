@@ -1,5 +1,11 @@
 import java.util.Objects;
 
+/**
+ * Must return EstacionamentoExeption if car doesn't have a driver
+ * Must return NullPointerExeption if car doesn't have plate
+ * Must return NullPointerExeption if car doesn't have color.
+ */
+
 public class Carro {
     private final Motorista motorista;
 
@@ -7,6 +13,7 @@ public class Carro {
 
     private final Cor cor;
 
+    //not mess from here
     private Carro(Motorista motorista, String placa, Cor cor) {
         this.motorista = motorista;
         this.placa = placa;
@@ -58,6 +65,7 @@ public class Carro {
     }
 
 
+    //not mess until here
     public static class CarroBuilder {
 
         private Motorista motorista;
@@ -69,40 +77,29 @@ public class Carro {
         private CarroBuilder() {
         }
 
-        /**
-         * Deve retornar erro quando o carro é autônomo
-         * expected = EstacionamentoException
-         * @param motorista
-         * @return
-         */
         public CarroBuilder withMotorista(Motorista motorista) {
             this.motorista = motorista;
             return this;
         }
 
-        /**
-         * Deve retornar erro quando carro não tem placa
-         * expected = NullPointerException
-         * @param placa
-         * @method verificaPlacaCarro
-         * @exception NullPointerException
-         */
         public CarroBuilder withPlaca(String placa) {
             this.placa = placa;
             return this;
         }
 
-        /**
-         * Deve retornar erro quando carro não tem cor
-         * expected = NullPointerException
-         * @param cor
-         * @return
-         */
+
         public CarroBuilder withCor(Cor cor) {
             this.cor = cor;
             return this;
         }
 
+        /**
+         * @method build will buid the object and validade the given data by calling
+         * @method verificaCorCarro
+         * @method verificaMotorista
+         * @method verificaPlacaCarro
+         * @return a new car object if all the methods are true.
+         */
         public Carro build() {
             verificaCorCarro(cor);
             verificaMotorista(motorista);
@@ -111,6 +108,11 @@ public class Carro {
         }
     }
 
+    /**
+     * @method verificaMotorista is called to verify if a valid driver is given
+     * @param motorista cannot be null or empty.
+     * @return true if driver is a valid param.
+     */
     public static boolean verificaMotorista(Motorista motorista){
         if (motorista == null){
             throw new EstacionamentoException("Carro deve ter motorista.");
@@ -118,6 +120,11 @@ public class Carro {
         return true;
     }
 
+    /**
+     * @method verificaPlacaCarro is called to verify if the given cars plate is valid
+     * @param placa cannot be null or empty.
+     * @return true if the plate given is valid.
+     */
     public static boolean verificaPlacaCarro (String placa){
         if (placa == null){
             throw new NullPointerException();
@@ -127,6 +134,11 @@ public class Carro {
         return true;
     }
 
+    /**
+     * @method verificaCorCarro is called to verify if the given cars color is valid.
+     * @param cor cannot be null.
+     * @return true if the color given is valid.
+     */
     public static boolean verificaCorCarro(Cor cor){
         if (cor == null){
             throw new NullPointerException();
