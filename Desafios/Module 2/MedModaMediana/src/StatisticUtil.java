@@ -2,6 +2,11 @@ import java.util.Arrays;
 
 public class StatisticUtil {
 
+    /**
+     * Calculates de average of an integer array.
+     * @param elements is given to calculate the average
+     * @return the average of the elements of the array
+     */
     public static int average(int[] elements) {
         int sum = 0;
         for (int element : elements){
@@ -10,6 +15,11 @@ public class StatisticUtil {
         return sum / elements.length;
     }
 
+    /**
+     * Calculates the mode of an integer array
+     * @param elements is given to calculate mode
+     * @return the mode of the elements of the array
+     */
     public static int mode(int[] elements) {
         int maxValue = 0;
         int maxCount = 0;
@@ -28,6 +38,11 @@ public class StatisticUtil {
         return maxValue;
     }
 
+    /**
+     * Calculates the median of an integer array
+     * @param elements is given to calculate the median
+     * @return the median of the elements of the array
+     */
     public static int median(int[] elements) {
         Arrays.sort(elements);
         int middle = elements.length/2;

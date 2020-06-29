@@ -14,13 +14,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     public List<Jogador> listaJogadores = new ArrayList<>();
 
 	/**
-	 * @param id <Long></Long>
-	 * @param nome <String></String>
-	 * @param dataCriacao <LocalDate></LocalDate>
-	 * @param corUniformePrincipal <String></String>
-	 * @param corUniformeSecundario <String></String>
+	 * Inclui um novo time na listaTimes caso o time não exista na listaTimes
+	 * @param id
+	 * @param nome
+	 * @param dataCriacao
+	 * @param corUniformePrincipal
+	 * @param corUniformeSecundario
 	 *
-	 * @create new Time()
 	 * @add time to listaTimes
 	 * @exception  IdentificadorUtilizadoException
 	 */
@@ -32,6 +32,11 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
         listaTimes.add(time);
 	}
 
+	/**
+	 * Deve retornar true ou acionar a exceção.
+	 * @param idTime deve estar na listaTimes
+	 * @exception TimeNaoEncontradoException
+	 */
 	public boolean validaTime (Long idTime){
         for (Time time : listaTimes){
             if (idTime == time.getId()){
@@ -41,16 +46,31 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     }
 
 	/**
-	 * @param id <Long></Long>
-	 * @param idTime <Long></Long>
-	 * @param nome <String></String>
-	 * @param dataNascimento <LocalDate></LocalDate>
-	 * @param nivelHabilidade <Integer></Integer>
-	 * @param salario <BigDecimal></BigDecimal>
-	 *
-	 * @create <new> Jogador
-	 * @add jogador to listaJogadores
+	 * Se o id do time já existir deve retornar exceção.
+	 * @param idTime não deve estar em listaTimes.
 	 * @exception IdentificadorUtilizadoException
+	 */
+	public boolean validaIdTime (Long idTime){
+		for (Time time : listaTimes){
+			if (idTime == time.getId()){
+				throw new IdentificadorUtilizadoException();
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Deve incluir um novo jogador na listaJogadores.
+	 * @param id
+	 * @param idTime
+	 * @param nome
+	 * @param dataNascimento
+	 * @param nivelHabilidade
+	 * @param salario
+	 *
+	 * @method validaIdJogador verifica se a id do jogador já existe na listaJogadores
+	 * @exception IdentificadorUtilizadoException
+	 * @method validaTime verifica se o time existe na listaTimes.
 	 * @exception TimeNaoEncontradoException
 	 */
 	public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
@@ -62,6 +82,11 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		}
 	}
 
+	/**
+	 * Se o id do jogador já existir deve retornar exceção.
+	 * @param idJogador não deve estar em listaJogadores.
+	 * @exception IdentificadorUtilizadoException
+	 */
 	public boolean validaIdJogador (Long idJogador){
 		for (Jogador jogador : listaJogadores){
 			if (idJogador == jogador.getId()){
@@ -70,7 +95,12 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		} return true;
     }
 
-    public boolean validaJogador (Long idJogador){
+	/**
+	 * Verifica se o jogador existe na listaJogadores.
+	 * @param idJogador deve existir na listaJogadores.
+	 * @exception JogadorNaoEncontradoException
+	 */
+	public boolean validaJogador (Long idJogador){
 		for (Jogador jogador : listaJogadores){
 			if (idJogador.equals(jogador.getId())){
 				return true;
@@ -99,6 +129,11 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 
 	}
 
+	/**
+	 * Verifica qual é o time do jogador.
+	 * @param idJogador irá ser o parâmetro de busca para retornar o time.
+	 * @return time do jogador.
+	 */
 	public Long buscarTimeJogador (Long idJogador){
 	    Long time = 0l;
 	    for (Jogador jogador : listaJogadores){
@@ -109,7 +144,11 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
         return time;
     }
 
-	public void zeraCapitao (Long idJogador){
+	/**
+	 * Irá remover o capitão do time para poder definir um novo capitão para o time.
+	 * @param idJogador para poder verificar qual o time e remover o capitão anterior.
+	 */
+    public void zeraCapitao (Long idJogador){
 	    Long time = buscarTimeJogador(idJogador);
 	    for (Jogador jogador : listaJogadores){
 	        if (jogador.equals(time)){
@@ -119,8 +158,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
     }
 
 	/**
-	 * @param idTime
-	 * @return Long jogador.getId() if jogador.isCapitao()
+	 * Busca o capitão do time caso exista.
+	 * @param idTime é usado para verificar quem é o jogador nomeado como capitão.
+	 * @return id do capitão do time.
 	 * @exception CapitaoNaoInformadoException
 	 * @exception TimeNaoEncontradoException
 	 */
@@ -138,8 +178,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 
 
 	/**
-	 * @param idJogador
-	 * @return String jogador.getNome()
+	 * Busca o nome do jogador.
+	 * @param idJogador é usado para buscar o nome do jogador.
+	 * @return nome do jogador.
 	 * @exception JogadorNaoEncontradoException
 	 */
 	public String buscarNomeJogador(Long idJogador) {
@@ -152,8 +193,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * @param idTime
-	 * @return String time.getNome()
+	 * Busca o nome do time.
+	 * @param idTime é usado para buscar o nome do time.
+	 * @return nome do time.
 	 * @exception TimeNaoEncontradoException
 	 */
 	public String buscarNomeTime(Long idTime) {
@@ -166,8 +208,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * @param idTime
-	 * @return List <Long>idJogadores</Long>
+	 * Busca todos os jogadores do time e retorna uma lista com eles.
+	 * @param idTime é usado para buscar os jogadores do time.
+	 * @return uma lista com o id dos jogadores
 	 * @exception  TimeNaoEncontradoException
 	 */
 	public List<Long> buscarJogadoresDoTime(Long idTime) {
@@ -183,8 +226,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * @param idTime
-	 * @return idMelhorJogadorTime <Long></Long>
+	 * Busca pelo melhor jogador do time.
+	 * @param idTime é usado para buscar o melhor jogador do time.
+	 * @return a id do melhor jogador do time <Long></Long>
      * @exception TimeNaoEncontradoException
 	 */
 	public Long buscarMelhorJogadorDoTime(Long idTime) {
@@ -224,7 +268,8 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * @return List <Long></Long>
+	 * Busca os times e retorna uma lista com o id dos times.
+	 * @return lista com o id dos times.
 	 */
 	public List<Long> buscarTimes() {
 		List <Long> listaIdTime = new ArrayList<Long>();
@@ -241,7 +286,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * **Exceções**:
 	 * Caso o time informado não exista, retornar TimeNaoEncontradoException
 	 * @param idTime
-	 * @return
+	 * @return id do jogador com maior salário
 	 */
 	public Long buscarJogadorMaiorSalario(Long idTime) {
         Long jogadorComMaiorSalario = 100l;
@@ -260,8 +305,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	/**
-	 * @param idJogador
-	 * @return jogador.getSalario() <BigDecimal></BigDecimal>
+	 * Busca o salário do jogador.
+	 * @param idJogador é usado para buscar o valor do seu salário.
+	 * @return valor do salário do jogador
      * @exception JogadorNaoEncontradoException
 	 */
 	public BigDecimal buscarSalarioDoJogador(Long idJogador) {
@@ -280,7 +326,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	 * **Exceções**:
 	 * Caso não exista nenhum jogador cadastrado, retornar uma lista vazia.
 	 * @param top
-	 * @return List <Long></Long>
+	 * @return listaJogadores
 	 */
 	public List<Long> buscarTopJogadores(Integer top) {
         List<Long> stream = listaJogadores.stream().

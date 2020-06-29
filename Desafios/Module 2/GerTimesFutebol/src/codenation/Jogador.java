@@ -1,9 +1,13 @@
 package codenation;
 
+/**
+ * Jogador é a classe com construtor, getters e setters para jogador.
+ */
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Jogador {
+public class Jogador {//all mine
     //Atributos
     private Long id;
     private Long idTime;
