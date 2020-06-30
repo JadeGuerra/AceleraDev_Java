@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AceleraDev_Java.iml" filepath="$PROJECT_DIR$/.idea/AceleraDev_Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafios/Module 1/CalcSalarioLiquido/CalcSalarioLiquido.iml" filepath="$PROJECT_DIR$/Desafios/Module 1/CalcSalarioLiquido/CalcSalarioLiquido.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desafios/Module 3/CalculadoraAtributoClasse/CalculadoraAtributoClasse.iml" filepath="$PROJECT_DIR$/Desafios/Module 3/CalculadoraAtributoClasse/CalculadoraAtributoClasse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desafios/Module 3/CalculadoraAtributosClasse/CalculadoraAtributosClasse.iml" filepath="$PROJECT_DIR$/Desafios/Module 3/CalculadoraAtributosClasse/CalculadoraAtributosClasse.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafios/Module 2/ControleEstacionamento/ControleEstacionamento.iml" filepath="$PROJECT_DIR$/Desafios/Module 2/ControleEstacionamento/ControleEstacionamento.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafios/Module 1/CriptoCesar/CriptoCesar.iml" filepath="$PROJECT_DIR$/Desafios/Module 1/CriptoCesar/CriptoCesar.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafios/Module 1/Fibonacci/Fibonacci.iml" filepath="$PROJECT_DIR$/Desafios/Module 1/Fibonacci/Fibonacci.iml" />
