@@ -8,6 +8,7 @@ import interfaces.Calculavel;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -30,30 +31,29 @@ import java.util.Objects;
  * Utilizar os packages existentes do projeto para crias as devidas classes.
  */
 public class CalculadorDeClasses implements Calculavel {
-    //TODO construir o calculo a partir de uma classe que eu não sei qual é, buscando o atributo com valor bigdecimal e annotation somar ou subtrair.
-    //TODO para achar isso usar o reflections
+
 
     @Override
     public BigDecimal somar(Object object) {
-        BigDecimal soma = BigDecimal.valueOf(0);
-        Field[] fields = Object.class.getDeclaredFields();
+        BigDecimal soma = BigDecimal.ZERO;
+        Field[] fields = object.getClass().getDeclaredFields();
         for (Field field : fields){
-            if (field.isAnnotationPresent(Somar.class)){
-                soma.add((BigDecimal) analizarTipoAtributo(field));
-
+            if ((field.getType().equals(BigDecimal.class)) && (field.isAnnotationPresent(Somar.class))){
+                BigDecimal adicionar = analizarTipoAtributo(field, object);
+                soma = soma.add(adicionar);
             }
         }
         return soma;
+
     }
 
     @Override
-    public BigDecimal subtrair(Object object) {
-        BigDecimal soma = BigDecimal.valueOf(0);
-        Field[] fields = Object.class.getDeclaredFields();
+    public BigDecimal subtrair(Object object){
+        BigDecimal soma = BigDecimal.ZERO;
+        Field[] fields = object.getClass().getDeclaredFields();
         for (Field field : fields){
-            if (field.isAnnotationPresent(Subtrair.class)){
-                soma.add((BigDecimal) analizarTipoAtributo(field));
-
+            if ((field.getType().equals(BigDecimal.class)) && (field.isAnnotationPresent(Subtrair.class))){
+                soma = soma.add(analizarTipoAtributo(field, object));
             }
         }
         return soma;
@@ -65,13 +65,16 @@ public class CalculadorDeClasses implements Calculavel {
     }
 
 
-    private Object analizarTipoAtributo (Field field){
-        if (field.getType().equals(BigDecimal.class)){
-            return BigDecimal.valueOf(Long.parseLong(field.toString()));
+    private BigDecimal analizarTipoAtributo(Field field, Object object) {
+        field.setAccessible(true);
+        try {
+            return new BigDecimal(String.valueOf(field.get(object)));
+        } catch (IllegalAccessException e) {
+            return BigDecimal.ZERO;
         }
-        return BigDecimal.ZERO;
-    }
 
+
+    }
 
 
 
