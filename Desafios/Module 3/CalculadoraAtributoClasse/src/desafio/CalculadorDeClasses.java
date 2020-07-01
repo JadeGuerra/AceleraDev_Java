@@ -1,9 +1,14 @@
 package desafio;
 
 
+import annotation.Somar;
+import annotation.Subtrair;
 import interfaces.Calculavel;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Você deverá também criar uma classe concreta que implementa Calculavel.
@@ -30,16 +35,44 @@ public class CalculadorDeClasses implements Calculavel {
 
     @Override
     public BigDecimal somar(Object object) {
-        return null;
+        BigDecimal soma = BigDecimal.valueOf(0);
+        Field[] fields = Object.class.getDeclaredFields();
+        for (Field field : fields){
+            if (field.isAnnotationPresent(Somar.class)){
+                soma.add((BigDecimal) analizarTipoAtributo(field));
+
+            }
+        }
+        return soma;
     }
 
     @Override
     public BigDecimal subtrair(Object object) {
-        return null;
+        BigDecimal soma = BigDecimal.valueOf(0);
+        Field[] fields = Object.class.getDeclaredFields();
+        for (Field field : fields){
+            if (field.isAnnotationPresent(Subtrair.class)){
+                soma.add((BigDecimal) analizarTipoAtributo(field));
+
+            }
+        }
+        return soma;
     }
 
     @Override
     public BigDecimal totalizar(Object object) {
         return somar(object).subtract(subtrair(object));
     }
+
+
+    private Object analizarTipoAtributo (Field field){
+        if (field.getType().equals(BigDecimal.class)){
+            return BigDecimal.valueOf(Long.parseLong(field.toString()));
+        }
+        return BigDecimal.ZERO;
+    }
+
+
+
+
 }
