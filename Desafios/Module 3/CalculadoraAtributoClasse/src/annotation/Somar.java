@@ -4,6 +4,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * Você precisa somar ou subtrair determinados atributos do tipo BigDecimal de uma classe.
@@ -11,6 +12,6 @@ import java.lang.annotation.Target;
  */
 
 @Target(ElementType.FIELD)
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(value=RUNTIME)
 public @interface Somar {
 }
