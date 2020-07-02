@@ -29,7 +29,7 @@ public class Estacionamento {
      * @method estacionarSenior is called if the parking lot if full.
      */
     public void estacionar(Carro carro) {
-        if (verificaSePodeEstacionar()){
+        if (verificarSePodeEstacionar()){
             listaCarrosEstacionados.add(carro);
         } else {
             estacionarSenior(carro);
@@ -54,19 +54,19 @@ public class Estacionamento {
     }
 
     /**
-     * @method verificaVagasRestantes is called wen we need to know how many parking spots are available to park a car.
+     * @method verificarVagasRestantes is called wen we need to know how many parking spots are available to park a car.
      * @return the number os parking spots available to park.
      */
-    private int verificaVagasRestantes (){
+    private int verificarVagasRestantes (){
         return  limiteDeVagas - carrosEstacionados();
     }
 
     /**
-     * @method verificaSePodeEstacionar is called if we need to know if the car can be parked in an available parking spot.
+     * @method verificarSePodeEstacionar is called if we need to know if the car can be parked in an available parking spot.
      * @return true if the car can be parked in a available parking spot.
      */
-    private boolean verificaSePodeEstacionar (){
-        if (verificaVagasRestantes() >= limiteDeVagas){
+    private boolean verificarSePodeEstacionar (){
+        if (verificarVagasRestantes() >= limiteDeVagas){
             return false;
         }
         return true;
