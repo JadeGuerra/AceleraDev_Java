@@ -95,15 +95,15 @@ public class Carro {
 
         /**
          * @method build will buid the object and validade the given data by calling
-         * @method verificaCorCarro
-         * @method verificaMotorista
-         * @method verificaPlacaCarro
+         * @method verificarCorCarro
+         * @method verificarMotorista
+         * @method verificarPlacaCarro
          * @return a new car object if all the methods are true.
          */
         public Carro build() {
-            verificaCorCarro(cor);
-            verificaMotorista(motorista);
-            verificaPlacaCarro(placa);
+            verificarCorCarro(cor);
+            verificarMotorista(motorista);
+            verificarPlacaCarro(placa);
             return new Carro(motorista, placa, cor);
         }
     }
@@ -113,7 +113,7 @@ public class Carro {
      * @param motorista cannot be null or empty.
      * @return true if driver is a valid param.
      */
-    public static boolean verificaMotorista(Motorista motorista){
+    public static boolean verificarMotorista(Motorista motorista){
         if (motorista == null){
             throw new EstacionamentoException("Carro deve ter motorista.");
         }
@@ -125,7 +125,7 @@ public class Carro {
      * @param placa cannot be null or empty.
      * @return true if the plate given is valid.
      */
-    public static boolean verificaPlacaCarro (String placa){
+    public static boolean verificarPlacaCarro (String placa){
         if (placa == null){
             throw new NullPointerException();
         }else if (placa.isEmpty()){
@@ -139,7 +139,7 @@ public class Carro {
      * @param cor cannot be null.
      * @return true if the color given is valid.
      */
-    public static boolean verificaCorCarro(Cor cor){
+    public static boolean verificarCorCarro(Cor cor){
         if (cor == null){
             throw new NullPointerException();
         }

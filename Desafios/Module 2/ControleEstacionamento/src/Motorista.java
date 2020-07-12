@@ -93,22 +93,22 @@ public class Motorista {
 
 
         /**
-         * @method validaIdade is called to validate the given drivers age
+         * @method validarIdade is called to validate the given drivers age
          * @param idade cannot be negative
          */
         public MotoristaBuilder withIdade(int idade) {
-            validaIdade(idade);
+            validarIdade(idade);
             this.idade = idade;
             return this;
         }
 
 
         /**
-         * @method validaPontos is calld to validate given drivers licence points.
+         * @method validarPontos is calld to validate given drivers licence points.
          * @param pontos cannot be negative
          */
         public MotoristaBuilder withPontos(int pontos) {
-            validaPontos(pontos);
+            validarPontos(pontos);
             this.pontos = pontos;
             return this;
         }
@@ -124,13 +124,13 @@ public class Motorista {
          * @return a new Motorista object if all data are inside the required params.
          */
         public Motorista build() {
-            verificaDadosMotorista(nome, idade, pontos, habilitacao);
+            verificarDadosMotorista(nome, idade, pontos, habilitacao);
             return new Motorista(nome, idade, pontos, habilitacao);
         }
     }
 
     /**
-     * @method verificaDadosMotorista will validate the given params
+     * @method verificarDadosMotorista will validate the given params
      * @param nome drivers name cannot be empty or null
      * @param idade drivers age cannot be under 18 years old
      * @param pontos drivers licence points cannot be above 20
@@ -140,7 +140,7 @@ public class Motorista {
      * @exception NullPointerException
      * @exception EstacionamentoException
      */
-    public static void verificaDadosMotorista (String nome, int idade, int pontos, String habilitacao){
+    public static void verificarDadosMotorista (String nome, int idade, int pontos, String habilitacao){
         if (nome.trim().isEmpty() || nome == null || habilitacao.trim(). isEmpty() || habilitacao == null){
             throw new NullPointerException();
         } else if (idade < 18){
@@ -151,22 +151,22 @@ public class Motorista {
     }
 
     /**
-     * @method validaIdade will validate given drivers age
+     * @method validarIdade will validate given drivers age
      * @param idade cannot be negative
      * @exception IllegalArgumentException
      */
-    public static void validaIdade (int idade){
+    public static void validarIdade (int idade){
         if (idade < 0){
             throw new IllegalArgumentException();
         }
     }
 
     /**
-     * @method validaPontos will validate given drivers licence points
+     * @method validarPontos will validate given drivers licence points
      * @param pontos cannot be negative
      * @exception IllegalArgumentException
      */
-    public static void validaPontos (int pontos){
+    public static void validarPontos (int pontos){
         if (pontos < 0 ){
             throw new IllegalArgumentException();
         }
