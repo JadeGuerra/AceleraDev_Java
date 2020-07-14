@@ -3,9 +3,11 @@ package com.challenge.service.interfaces;
 import com.challenge.entity.Challenge;
 import com.challenge.repository.ChallengeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ChallengeServiceimpl implements ChallengeServiceInterface {
 
     @Autowired
@@ -13,7 +15,7 @@ public class ChallengeServiceimpl implements ChallengeServiceInterface {
 
     @Override
     public List<Challenge> findByAccelerationIdAndUserId(Long accelerationId, Long userId) {
-        return challengeRepository.findByAccelerationIdAndUserId(accelerationId + userId);
+        return challengeRepository.findByAccelerationIdAndUserId(accelerationId, userId);
     }
 
     @Override

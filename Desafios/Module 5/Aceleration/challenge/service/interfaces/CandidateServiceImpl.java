@@ -4,10 +4,12 @@ import com.challenge.entity.Candidate;
 import com.challenge.entity.CandidateId;
 import com.challenge.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CandidateServiceImpl implements CandidateServiceInterface {
 
     @Autowired
@@ -20,8 +22,7 @@ public class CandidateServiceImpl implements CandidateServiceInterface {
 
     @Override
     public Optional<Candidate> findById(Long userId, Long companyId, Long accelerationId) {
-        Long id = userId + companyId + accelerationId;
-        return candidateRepository.findById(id);
+        return candidateRepository.findById(userId, companyId, accelerationId);
     }
 
     @Override

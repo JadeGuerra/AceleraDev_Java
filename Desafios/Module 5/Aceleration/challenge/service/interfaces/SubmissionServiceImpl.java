@@ -3,25 +3,26 @@ package com.challenge.service.interfaces;
 import com.challenge.entity.Submission;
 import com.challenge.repository.SubmissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+@Service
 
 public class SubmissionServiceImpl implements SubmissionServiceInterface{
 
     @Autowired
     private SubmissionRepository submissionRepository;
 
-    //tem q dar erro nesse.
     @Override
     public BigDecimal findHigherScoreByChallengeId(Long challengeId) {
-        return null;
+        return submissionRepository.findHigherScoreByChallengeId(challengeId);
     }
 
     @Override
     public List<Submission> findByChallengeIdAndAccelerationId(Long challengeId, Long accelerationId) {
-        Long id = challengeId + accelerationId;
-        return submissionRepository.findByChallengeIdAndAccelerationId(id);
+        return submissionRepository.findByChallengeIdAndAccelerationId(challengeId, accelerationId);
     }
 
     @Override
