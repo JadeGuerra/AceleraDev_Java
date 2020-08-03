@@ -3,10 +3,12 @@ package com.challenge.service.interfaces;
 import com.challenge.entity.Company;
 import com.challenge.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CompanyServiceImpl implements CompanyServiceInterface {
 
     @Autowired
@@ -22,7 +24,6 @@ public class CompanyServiceImpl implements CompanyServiceInterface {
         return companyRepository.findByAccelerationId(accelerationId);
     }
 
-    //todo create method
     @Override
     public List<Company> findByUserId(Long userId) {
         return companyRepository.findByUserId(userId);

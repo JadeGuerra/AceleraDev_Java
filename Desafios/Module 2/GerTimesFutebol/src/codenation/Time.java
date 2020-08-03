@@ -1,22 +1,19 @@
 package codenation;
-/**
- * Time é a classe com construtor, getters e setters referente ao time.
- */
 
 import java.time.LocalDate;
 import java.util.*;
 
-public class Time {//all mine
+public class Time {
     //Atributos
     private Long id;
     private String nome;
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
     private String corUniformeSecundario;
-
+    public List<Jogador> jogadores = new ArrayList<Jogador>();
 
     //Construtores
-    public Time(Long id,
+    public void time(Long id,
                      String nome,
                      LocalDate dataCriacao,
                      String corUniformePrincipal,
@@ -67,6 +64,21 @@ public class Time {//all mine
 
     public void setCorUniformeSecundario(String corUniformeSecundario) {
         this.corUniformeSecundario = corUniformeSecundario;
+    }
+
+    //Métodos
+    public void addJogador(Jogador jogador){
+
+        jogadores.add(jogador);
+
+    }
+
+    public List<Jogador> getJogadores(){
+
+        return jogadores;
+
+    }
+
     }
 
 }
