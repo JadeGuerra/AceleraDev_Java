@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2bcdf505-3ae3-4443-a575-6e89d9ba380f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../java-12/src/main/java/com/challenge/security/Security.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/BillingProcessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/Cash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/CreditCard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/DebitCard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/PaymentMethod.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/PriceStrategy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/br/com/codenation/paymentmethods/Transfer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/test/br/com/codenation/BillingProcessorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/Cash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/CreditCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/DebitCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/Transfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stdout.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-5/stdout.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codenation" beforeDir="false" afterPath="$PROJECT_DIR$/../codenation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/AccelerationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/AccelerationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/CandidateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/CandidateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/ChallengeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/ChallengeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/SubmissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/SubmissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-11/src/main/java/com/challenge/endpoints/UserController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1fcIUJeYMLYE99v0SxteDJYaGEW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RunManager" selected="JUnit.BillingProcessorSubmitTest.testCashPayment">
+    <configuration name="BillingProcessorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;br.com.codenation.BillingProcessorTest&quot; --stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BillingProcessorTest.testCashPayment" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;br.com.codenation.BillingProcessorTest.testCashPayment&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BillingProcessorTest.testTransferPayment" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;br.com.codenation.BillingProcessorTest.testTransferPayment&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BillingProcessorSubmitTest.testCashPayment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-17.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.codenation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.codenation" />
+      <option name="MAIN_CLASS_NAME" value="br.com.codenation.BillingProcessorSubmitTest" />
+      <option name="METHOD_NAME" value="testCashPayment" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BillingProcessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-17.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.codenation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.codenation" />
+      <option name="MAIN_CLASS_NAME" value="br.com.codenation.BillingProcessorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BillingProcessorSubmitTest.testCashPayment" />
+        <item itemvalue="JUnit.BillingProcessorTest" />
+        <item itemvalue="Gradle.BillingProcessorTest.testCashPayment" />
+        <item itemvalue="Gradle.BillingProcessorTest" />
+        <item itemvalue="Gradle.BillingProcessorTest.testTransferPayment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bcdf505-3ae3-4443-a575-6e89d9ba380f" name="Default Changelist" comment="" />
+      <created>1596510968621</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596510968621</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="115" y="0" key="#BillingProcessorSubmitTest.testCashPayment" timestamp="1596736979355">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="115" y="0" key="#BillingProcessorSubmitTest.testCashPayment/0.0.1024.728@0.0.1024.728" timestamp="1596736979355" />
+    <state x="92" y="92" width="840" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1596738830243">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="92" y="92" width="840" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1024.728@0.0.1024.728" timestamp="1596738830243" />
+    <state x="317" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1596511352762">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="317" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1024.728@0.0.1024.728" timestamp="1596511352762" />
+    <state x="192" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596573025815">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="192" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1024.728@0.0.1024.728" timestamp="1596573025815" />
+    <state width="981" height="223" key="GridCell.Tab.0.bottom" timestamp="1596738830169">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.0.bottom/0.0.1024.728@0.0.1024.728" timestamp="1596738830169" />
+    <state width="981" height="223" key="GridCell.Tab.0.center" timestamp="1596738830169">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.0.center/0.0.1024.728@0.0.1024.728" timestamp="1596738830169" />
+    <state width="981" height="223" key="GridCell.Tab.0.left" timestamp="1596738830168">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.0.left/0.0.1024.728@0.0.1024.728" timestamp="1596738830168" />
+    <state width="981" height="223" key="GridCell.Tab.0.right" timestamp="1596738830169">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.0.right/0.0.1024.728@0.0.1024.728" timestamp="1596738830169" />
+    <state width="981" height="223" key="GridCell.Tab.1.bottom" timestamp="1596738830170">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.1.bottom/0.0.1024.728@0.0.1024.728" timestamp="1596738830170" />
+    <state width="981" height="223" key="GridCell.Tab.1.center" timestamp="1596738830169">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.1.center/0.0.1024.728@0.0.1024.728" timestamp="1596738830169" />
+    <state width="981" height="223" key="GridCell.Tab.1.left" timestamp="1596738830169">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.1.left/0.0.1024.728@0.0.1024.728" timestamp="1596738830169" />
+    <state width="981" height="223" key="GridCell.Tab.1.right" timestamp="1596738830170">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="223" key="GridCell.Tab.1.right/0.0.1024.728@0.0.1024.728" timestamp="1596738830170" />
+    <state x="13" y="9" key="SettingsEditor" timestamp="1596570991236">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="13" y="9" key="SettingsEditor/0.0.1024.728@0.0.1024.728" timestamp="1596570991236" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/Order.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/Cash.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/BillingProcessor.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/CreditCard.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/DebitCard.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/Transfer.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/PaymentMethod.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/codenation/paymentmethods/PaymentMethod.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/java_17$BillingProcessorTest.ic" NAME="BillingProcessorTest Coverage Results" MODIFIED="1596512222946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
